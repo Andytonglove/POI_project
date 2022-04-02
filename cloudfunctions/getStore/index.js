@@ -19,6 +19,7 @@ exports.main = async (event, context) => {
     tasks.push(promise)
   }
   // 等待所有
+  // 这里需要至少数据库中含有数据，否则reduce为空会一直加载，这里注意数据组织
   return (await Promise.all(tasks)).reduce((acc, cur) => {
     return {
       data: acc.data.concat(cur.data),
