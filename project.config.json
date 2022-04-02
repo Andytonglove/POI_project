@@ -45,7 +45,7 @@
         "minifyWXML": true
     },
     "appid": "wx3f5298923ab6db6c",
-    "projectname": "meishitujian",
+    "projectname": "POI_program",
     "libVersion": "2.4.4",
     "condition": {
         "search": {
