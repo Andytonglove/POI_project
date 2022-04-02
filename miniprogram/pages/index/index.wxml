@@ -1,0 +1,39 @@
+<!-- 新手引导弹出层 -->
+<map id="map" class="map" enable-building="true" enable-3D="true">
+    <!-- 问题数量表 -->
+    <cover-view class="numberList">
+        <cover-view class="numberList-item">
+            <cover-image class="numberList-item-image" src="../../images/home/design.png"></cover-image>
+            <cover-view class="numberList-item-text">
+                3
+                <cover-view style="font-size:10px;">设计</cover-view>
+            </cover-view>
+        </cover-view>
+        <cover-view class="numberList-item-line"></cover-view>
+        <cover-view class="numberList-item">
+            <cover-image class="numberList-item-image" src="../../images/home/occupy.png"></cover-image>
+            <cover-view class="numberList-item-text">
+                4
+                <cover-view style="font-size:10px;">占用</cover-view>
+            </cover-view>
+        </cover-view>
+        <cover-view class="numberList-item-line"></cover-view>
+        <cover-view class="numberList-item">
+            <cover-image class="numberList-item-image" src="../../images/home/error.png"></cover-image>
+            <cover-view class="numberList-item-text">
+                5
+                <cover-view style="font-size:10px;">破损</cover-view>
+            </cover-view>
+        </cover-view>
+    </cover-view>
+
+    <!-- 定位 -->
+    <cover-view class="getLocation">
+        <cover-image src="../../images/home/getLocation.png"></cover-image>
+    </cover-view>
+
+    <cover-view class="tips-image" bindtap="onCloseIntroduction">
+        <cover-image src="../../images/intro/tips3.png" class="tips" mode="widthFix"></cover-image>
+        <cover-image src="../../images/intro/nav2.png" class="nav" mode="widthFix"></cover-image>
+    </cover-view>
+</map>

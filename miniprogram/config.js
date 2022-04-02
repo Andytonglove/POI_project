@@ -1,3 +1,7 @@
+/**
+ * envID: 云开发环境id
+ * mapSubKey： 腾讯地图key
+ */
 module.exports = {
   // 这里需要自己配置信息
   "appName":"POI地图",
