@@ -1,4 +1,5 @@
 module.exports = {
+  // 这里需要自己配置信息
   "appName":"POI地图",
   "envID":"cloud1-3gbx9sw41cb2a321",
   "mapSubKey":"FXZBZ-EFR3R-XQSWN-WSSEN-SEIPE-TNFVZ",
