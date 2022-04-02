@@ -46,7 +46,7 @@
     },
     "appid": "wx3f5298923ab6db6c",
     "projectname": "POI_program",
-    "libVersion": "2.4.4",
+    "libVersion": "2.23.2",
     "condition": {
         "search": {
             "list": []
