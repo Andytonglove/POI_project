@@ -9,26 +9,26 @@
     </view>
     <view class="form-item">
       <view class='item-title .is-ness' style="color:{{titleColor.problemLabel}}">
-        盲道问题
+        兴趣点问题
         <van-icon name="question-o" style="margin-left: 8px;" bindtap="goToArticle" />
       </view>
       <van-radio-group value='{{problemLabel}}' bind:change="onChangeRadio" class="radio">
         <van-row>
           <van-col span="8">
-            <van-radio name="盲道占用">盲道占用</van-radio>
+            <van-radio name="兴趣点占用">兴趣点占用</van-radio>
           </van-col>
           <van-col span="8">
-            <van-radio name="盲道破损">盲道破损</van-radio>
+            <van-radio name="兴趣点破损">兴趣点破损</van-radio>
           </van-col>
           <van-col span="8">
-            <van-radio name="盲道设计">盲道设计</van-radio>
+            <van-radio name="兴趣点设计">兴趣点设计</van-radio>
           </van-col>
         </van-row>
       </van-radio-group>
     </view>
     <view class="form-item" style="color:{{titleColor.images}}">
       <view class='item-title .is-ness'>图片上传</view>
-      <view class="item-desc">请最多上传两张完整且清晰的盲道问题图片</view>
+      <view class="item-desc">请最多上传两张完整且清晰的兴趣点问题图片</view>
       <view class="cu-form-group">
         <view class="grid col-4 grid-square flex-sub">
           <view class="bg-img" wx:for="{{images}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{images[index]}}">
@@ -45,7 +45,7 @@
     </view>
     <view class="form-item">
       <view class='item-title'>文字描述</view>
-      <textarea placeholder='请简要描述盲道问题....' name="content" value='{{content}}'></textarea>
+      <textarea placeholder='请简要描述兴趣点问题....' name="content" value='{{content}}'></textarea>
     </view>
     <button class='submit' form-type='submit'>提交</button>
   </form>

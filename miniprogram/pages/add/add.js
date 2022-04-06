@@ -216,11 +216,11 @@ Page({
     const problemLabel = event.detail;
     let iconPath = "";
     switch (problemLabel) {
-      case "盲道占用":
+      case "兴趣点占用":
         iconPath = "../../images/marker/occupy.png";
         break;
 
-      case "盲道设计":
+      case "兴趣点设计":
         iconPath = "../../images/marker/design.png";
         break;
 

@@ -86,7 +86,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: "我在友好盲道地图上标记了一处盲道问题，你也快来加入我们吧",
+      title: "我在POI地图上标记了一处兴趣点问题，你也快来加入我们吧",
       path: "/pages/map/map",
       imageUrl:
         "https://6d61-map-4g0ciu1x80002ab0-1305236624.tcb.qcloud.la/share/share-pre.jpg?sign=d0236b01a9f4f1255d06109ef4a3fa91&t=1618313697",
@@ -97,7 +97,7 @@ Page({
    */
   onShareTimeline: function () {
     return {
-      title: "我在友好盲道地图上标记了一处盲道问题，你也快来加入我们吧",
+      title: "我在POI地图上标记了一处兴趣点问题，你也快来加入我们吧",
       path: "/pages/map/map",
       imageUrl:
         "https://6d61-map-4g0ciu1x80002ab0-1305236624.tcb.qcloud.la/share/share-pre.jpg?sign=d0236b01a9f4f1255d06109ef4a3fa91&t=1618313697",
@@ -138,7 +138,7 @@ Page({
             })
             .catch((error) => {
               wx.showToast({
-                title: "删除失败！请添加微信 ixiqin_com 排查问题",
+                title: "删除失败！请添加微信 todo 排查问题",
               });
             });
         } else if (res.cancel) {

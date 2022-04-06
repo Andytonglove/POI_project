@@ -44,7 +44,7 @@ Page({
         drawData: {
           context1: "已成为第",
           numberId: userId,
-          context2: "位上传盲道问题的筑路",
+          context2: "位上传兴趣点问题的筑路",
           context3: "者，并获得了视障人士分享的视界",
           artImage: artList[userId % 30].artUrl,
           artTitle: artList[userId % 30].artName,
@@ -57,7 +57,7 @@ Page({
         drawData: {
           context1: "已经第",
           numberId: shareTime,
-          context2: "次上传盲道问题，并",
+          context2: "次上传兴趣点问题，并",
           context3: "获得了视障人士分享的视界",
           artImage: artList[shareTime % 30].artUrl,
           artTitle: artList[shareTime % 30].artName,
@@ -99,7 +99,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: "我在友好盲道地图上标记了一处盲道问题，你也快来加入我们吧",
+      title: "我在POI地图上标记了一处兴趣点问题，你也快来加入我们吧",
       path: "/pages/map/map",
       imageUrl: "https://6d61-map-4g0ciu1x80002ab0-1305236624.tcb.qcloud.la/share/share-pre.jpg?sign=d0236b01a9f4f1255d06109ef4a3fa91&t=1618313697",
     };
@@ -109,7 +109,7 @@ Page({
    */
   onShareTimeline: function () {
     return {
-      title: "我在友好盲道地图上标记了一处盲道问题，你也快来加入我们吧",
+      title: "我在POI地图上标记了一处兴趣点问题，你也快来加入我们吧",
       path: "/pages/map/map",
       imageUrl: "https://6d61-map-4g0ciu1x80002ab0-1305236624.tcb.qcloud.la/share/share-pre.jpg?sign=d0236b01a9f4f1255d06109ef4a3fa91&t=1618313697",
     };

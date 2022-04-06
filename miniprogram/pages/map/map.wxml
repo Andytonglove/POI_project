@@ -43,7 +43,7 @@
       <!-- 上传新增 -->
       <cover-view class="nav-tabbar-left nav-button" bindtap='goArticle'>
         <cover-image class="nav-tabbar-image" src="../../images/nav/article.png"></cover-image>
-        <cover-view>盲道科普</cover-view>
+        <cover-view>POI科普</cover-view>
       </cover-view>
       <!-- 上传新增 -->
       <cover-view class="nav-tabbar-center add">

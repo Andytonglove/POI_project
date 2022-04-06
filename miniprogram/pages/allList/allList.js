@@ -24,7 +24,7 @@ Page({
        */
       if (res.data.length == 0) {
         wx.showToast({
-          title: '没有别的店铺了！',
+          title: '没有别的兴趣点了！',
           icon: 'none'
         });
         return;

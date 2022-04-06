@@ -16,7 +16,7 @@
 </block>
 <block wx:if="{{searched}}">
   <view class="no_result_button">
-    没有找到想吃的美食？不妨去看看其他美食?
+    没有找到想看的兴趣点？不妨去看看其他兴趣点?
     <navigator url="../list/list" open-type="redirect" class="button view_all">查看全部</navigator>
   </view>
 </block>
