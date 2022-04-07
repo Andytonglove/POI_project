@@ -117,4 +117,7 @@ typings/
 
 /miniprogram/config.js
 
+# vscode
+.vscode/
+
 
