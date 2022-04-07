@@ -294,6 +294,12 @@ Page({
     });
   },
 
+  searchLocation: function () {
+    wx.navigateTo({
+      url: "../search/search",
+    });
+  },
+
   /**
    * 用户点击右上角分享
    */

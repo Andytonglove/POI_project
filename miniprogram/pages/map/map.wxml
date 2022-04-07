@@ -38,6 +38,10 @@
   <cover-view class="getLocation" bindtap="getCenterLocation">
     <cover-image src="../../images/home/getLocation.png"></cover-image>
   </cover-view>
+  <!-- 添加的兴趣点搜索按钮 -->
+    <cover-view class="searchLocation" bindtap="searchLocation">
+    <cover-image src="../../images/home/searchLocation.png"></cover-image>
+  </cover-view>
   <cover-view class="nav">
     <cover-view class="nav-tabbar">
       <!-- 上传新增 -->
