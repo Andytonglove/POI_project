@@ -116,6 +116,12 @@ Page({
       address: this.data.store.address,
     });
   },
+  // TODO 核验模块，可单独加入插件
+  check: function (e) {
+    wx.navigateTo({
+      url: "../add/add",
+    });
+  },
   deleteItem: function (e) {
     wx.showModal({
       title: "删除确认",
