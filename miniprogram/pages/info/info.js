@@ -119,7 +119,8 @@ Page({
   // TODO 核验模块，可单独加入插件
   check: function (e) {
     wx.navigateTo({
-      url: "../add/add",
+      // url: "../add/add",
+      url: "../check/check",
     });
   },
   deleteItem: function (e) {

@@ -39,10 +39,10 @@
         ],
         "minifyWXSS": true,
         "disableUseStrict": false,
+        "minifyWXML": true,
         "showES6CompileOption": false,
         "useCompilerPlugins": false,
-        "ignoreUploadUnusedFiles": true,
-        "minifyWXML": true
+        "ignoreUploadUnusedFiles": true
     },
     "appid": "wx3f5298923ab6db6c",
     "projectname": "POI_program",

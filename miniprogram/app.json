@@ -9,7 +9,8 @@
     "pages/share/share",
     "pages/myList/myList",
     "pages/article/article",
-    "pages/test/test"
+    "pages/test/test",
+    "pages/check/check"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
