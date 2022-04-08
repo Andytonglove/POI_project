@@ -1,0 +1,53 @@
+<!--pages/check/check.wxml-->
+<view class="form" report-submit='true' onsubmit="createItem">
+  <form report-submit='true' onsubmit="createItem">
+    <view class="form-item">
+      <view class='item-title .is-ness' style="color:{{titleColor.address}}">当前定位</view>
+      <view class="loactionGroup" bindtap='chooseLocation'>
+        <van-icon name="location-o" size="25px" />
+        <input placeholder='点击获取当前所在位置' name="address" value='{{address}}' disabled="true"></input>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class='item-title .is-ness' style="color:{{titleColor.problemLabel}}">
+        兴趣点问题
+        <van-icon name="question-o" style="margin-left: 8px;" bindtap="goToArticle" />
+      </view>
+      <van-radio-group value='{{problemLabel}}' bind:change="onChangeRadio" class="radio">
+        <van-row>
+          <van-col span="8">
+            <van-radio name="兴趣点占用">兴趣点占用</van-radio>
+          </van-col>
+          <van-col span="8">
+            <van-radio name="兴趣点破损">兴趣点破损</van-radio>
+          </van-col>
+          <van-col span="8">
+            <van-radio name="兴趣点设计">兴趣点设计</van-radio>
+          </van-col>
+        </van-row>
+      </van-radio-group>
+    </view>
+    <view class="form-item" style="color:{{titleColor.images}}">
+      <view class='item-title .is-ness'>图片上传</view>
+      <view class="item-desc">请最多上传两张完整且清晰的兴趣点问题图片</view>
+      <view class="cu-form-group">
+        <view class="grid col-4 grid-square flex-sub">
+          <view class="bg-img" wx:for="{{images}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{images[index]}}">
+            <image src='{{images[index]}}' mode='aspectFill'></image>
+            <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+              <text class="cuIcon-close"></text>
+            </view>
+          </view>
+          <view class="solids" bindtap="uploadImage" wx:if="{{images.length<2}}">
+            <text class="cuIcon-cameraadd"></text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class='item-title'>文字描述</view>
+      <textarea placeholder='请简要描述兴趣点问题....' name="content" value='{{content}}'></textarea>
+    </view>
+    <button class='submit' form-type='submit'>提交</button>
+  </form>
+</view>
