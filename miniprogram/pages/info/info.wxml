@@ -29,4 +29,7 @@
   <view class="navigateBox">
     <button class='navigate' bindtap='navigate'>导航</button>
   </view>
+  <view class="navigateBox">
+    <button class='navigate' bindtap='check'>核验</button>
+  </view>
 </block>
