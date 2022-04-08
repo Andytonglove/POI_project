@@ -89,11 +89,12 @@ Page({
           let errorProblemNumber = 0;
           let designProblemNumber = 0;
           res.result.data.forEach((item) => {
-            if (item.problemLabel === "盲道破损") {
+            // 这里将盲道改成兴趣点 可能出现bug和其他修改需求
+            if (item.problemLabel === "兴趣点破损") {
               errorProblemNumber++;
-            } else if (item.problemLabel === "盲道占用") {
+            } else if (item.problemLabel === "兴趣点占用") {
               occurpyProblemNumber++;
-            } else if (item.problemLabel === "盲道设计") {
+            } else if (item.problemLabel === "兴趣点设计") {
               designProblemNumber++;
             }
           });
