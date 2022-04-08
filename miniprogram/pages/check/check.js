@@ -105,6 +105,7 @@ Page({
         title: "上传数据中...",
       });
       this.createUserInfo();
+      // 这里要改成更新该点的数据
       store
         .add({
           data: {
@@ -122,7 +123,7 @@ Page({
         .then((res) => {
           wx.hideLoading();
           wx.showToast({
-            title: "创建成功！",
+            title: "核验成功！",
             icon: "success",
             success: (res) => {
               wx.navigateTo({
