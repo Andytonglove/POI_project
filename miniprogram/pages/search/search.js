@@ -33,7 +33,7 @@ Page({
   },
   loadData:function(keywords){
     store.skip(this.data.numbers).where({
-      title: db.RegExp({
+      problemLabel: db.RegExp({
         regexp: this.data.keywords,
         options: 'i',
       })
