@@ -18,7 +18,8 @@ Page({
       address: "black",
       problemLabel: "black",
       images: "black",
-    }
+    },
+    isChecked: 0
   },
 
   /**
@@ -87,7 +88,7 @@ Page({
     }
   },
 
-  createItem: function (event) {
+  updateItem: function (event) {
     this.setData({
       titleColor: {
         address: (!this.data.address || !this.data.longitude) ? "red" : "black",
@@ -107,7 +108,10 @@ Page({
       this.createUserInfo();
       // 这里要改成更新该点的数据
       store
-        .add({
+        .where({
+          _id: this.options.id,
+        })
+        .update({
           data: {
             createTime: new Date(),
             address: this.data.address,
@@ -117,7 +121,9 @@ Page({
             iconPath: this.data.iconPath,
             images: this.data.images,
             content: event.detail.value.content,
-            userName: wx.getStorageSync('nickName')
+            // 这里应该加上修改列表而非覆盖 TODO
+            userName: wx.getStorageSync('nickName'),
+            isChecked: 1
           },
         })
         .then((res) => {

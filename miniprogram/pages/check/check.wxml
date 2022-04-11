@@ -1,6 +1,6 @@
 <!--pages/check/check.wxml-->
-<view class="form" report-submit='true' onsubmit="createItem">
-  <form report-submit='true' onsubmit="createItem">
+<view class="form" report-submit='true' onsubmit="updateItem">
+  <form report-submit='true' onsubmit="updateItem">
     <view class="form-item">
       <view class='item-title .is-ness' style="color:{{titleColor.address}}">当前定位</view>
       <view class="loactionGroup" bindtap='chooseLocation'>
