@@ -119,7 +119,7 @@ Page({
   // 核验模块，可单独加入插件，这里跳转加传参id
   check: function (event) {
     console.log("marker核验", event);
-    const _id = options.id;
+    const _id = this.data.store._id;
     wx.navigateTo({
       url: "../check/check?id=" + _id,
     });
