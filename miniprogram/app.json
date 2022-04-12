@@ -10,7 +10,8 @@
     "pages/myList/myList",
     "pages/article/article",
     "pages/test/test",
-    "pages/check/check"
+    "pages/check/check",
+    "pages/message/message"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
