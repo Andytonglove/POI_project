@@ -85,14 +85,35 @@ Page({
   
   // 获取用户信息
   onInfo:function(e){
-    console.log(e.detail.userInfo)
-    if (e.detail.errMsg === "getUserInfo:ok"){
-      this.showPopup()
-      this.setData({
-        imageSrc: e.detail.userInfo.avatarUrl,
-        name: e.detail.userInfo.nickName,
+    // console.log(e.detail.userInfo)
+    // if (e.detail.errMsg === "getUserInfo:ok"){
+    //   this.showPopup()
+    //   this.setData({
+    //     imageSrc: e.detail.userInfo.avatarUrl,
+    //     name: e.detail.userInfo.nickName,
+    //   })
+    // }
+
+    this.setData({
+      imageSrc: wx.getStorageSync('avatarUrl'),
+      name: wx.getStorageSync('nickName')
+    })
+    if (!this.data.name && !this.data.imageSrc) {
+      wx.getUserProfile({
+        desc: '用于留言的个人信息',
+        success: (res) => {
+          this.setData({
+            name: res.userInfo.nickName,
+            imageSrc: res.userInfo.avatarUrl,
+          })
+          wx.setStorageSync("avatarUrl", res.userInfo.avatarUrl);
+          wx.setStorageSync("nickName", res.userInfo.nickName);
+          this.showPopup()
+        }
       })
-    }
+    } else {
+      this.showPopup()
+    } 
   },
 
   // 判断用户权限

@@ -1,13 +1,13 @@
 <!--pages/message/message.wxml-->
 
 <!-- 留言按钮 -->
+<!-- 删去 open-type="getUserInfo" bindgetuserinfo="onInfo"，等同于bindtap -->
 <view class="leaveBtn">
   <van-button
   type="primary" 
   size="large"
   round
-  open-type="getUserInfo"
-  bindgetuserinfo="onInfo"
+  bindtap="onInfo"
  >留言</van-button>
 </view>
 <van-cell wx:if='{{authority}}' label="您是管理员，可编辑留言，点击此处可复制页面路径" bindtap='copyPage'/>
