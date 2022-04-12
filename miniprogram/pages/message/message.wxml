@@ -11,7 +11,7 @@
  >留言</van-button>
 </view>
 <van-cell wx:if='{{authority}}' label="您是管理员，可编辑留言，点击此处可复制页面路径" bindtap='copyPage'/>
-<van-cell wx:if='{{authority}}' label="您是管理员，可轻点此处生成当前页面小程序码~" bindtap='getQ'/>
+<van-cell wx:if='{{authority}}' label="您是管理员，可轻点此处生成当前页面小程序码，并@相关部门~" bindtap='getQ'/>
 
 <!-- 留言内容 -->
 <van-skeleton

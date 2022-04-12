@@ -96,28 +96,33 @@ Page({
   },
 
   // 判断用户权限
-  authentication:function(){   
-    wx.cloud.callFunction({
-      name: 'getUserOpenId',
-      complete: res => {
-        // console.log(res)
-        this.setData({
-          userId: res.result.openid
-        })
-        this.setData({
-          authority:true
-        })
-        // db.collection('author').get().then(res2 => {
-        //   // console.log(res.result.event.userInfo.openId)
-        //   // console.log(res2.data[0]._openid)
-        //   if (res.result.openid === res2.data[0]._openid){
-        //     this.setData({
-        //       authority:true
-        //     })
-        //   }
-        // })
-      }
+  authentication:function(){
+    const _userId = wx.getStorageSync("openId");
+    this.setData({
+      userId: _userId,
+      authority: true
     })
+    // wx.cloud.callFunction({
+    //   name: 'getUserOpenId',
+    //   complete: res => {
+    //     // console.log(res)
+    //     this.setData({
+    //       userId: res.result.openid
+    //     })
+    //     this.setData({
+    //       authority:true
+    //     })
+    //     db.collection('author').get().then(res2 => {
+    //       // console.log(res.result.event.userInfo.openId)
+    //       // console.log(res2.data[0]._openid)
+    //       if (res.result.openid === res2.data[0]._openid){
+    //         this.setData({
+    //           authority:true
+    //         })
+    //       }
+    //     })
+    //   }
+    // })
   },
 
   // 提交回复
@@ -159,7 +164,7 @@ Page({
         templateId: lessonSubId,
         id: this.data.replyMsgId,
         userId:this.data.userId,
-        page: `pages/msgPages/msgPages?id=${this.data.pageId}`
+        page: `pages/message/message?id=${this.data.pageId}`
       }
     })
   },
@@ -185,7 +190,7 @@ Page({
   },
 
 
-  // 提交留言
+  // 提交留言，评论
   onSubmit:function(e){
     // console.log(e.detail.value.msgInput);
     message.add({
@@ -272,7 +277,7 @@ Page({
     wx.cloud.callFunction({
       name: 'getQ',
       data: {
-        path: `pages/msgPages/msgPages?id=${this.data.pageId}`,
+        path: `pages/message/message?id=${this.data.pageId}`,
         id: this.data.pageId,
       }
     }).then(res =>{
