@@ -95,4 +95,24 @@ swiper {
   width: 30px;
   background-color: #fff;
   padding: 10px;
+  animation: jumping 1s 0s infinite;
+}
+
+/* 定义关键帧动画 */
+@keyframes jumping {
+    0% {
+      bottom: 0;
+    }
+    25% {
+      bottom: 2.5px;
+    }
+    50% {
+      bottom: 5px;
+    }
+    75% {
+      bottom: 2.5px;
+    }
+    100%{
+      bottom: 0;
+    }
 }

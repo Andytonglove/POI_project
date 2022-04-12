@@ -288,7 +288,7 @@ Page({
   // 复制页面路径
   copyPage:function(e){
     wx.setClipboardData({
-      data: `pages/msgPages/msgPages?id=${this.data.pageId}`,
+      data: `pages/message/message?id=${this.data.pageId}`,
       // success(res) {
       //   wx.getClipboardData({
       //     success(res) {
