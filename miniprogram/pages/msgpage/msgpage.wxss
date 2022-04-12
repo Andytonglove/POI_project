@@ -1,0 +1,35 @@
+/* pages/msgpage/msgpage.wxss */
+.newBtn {
+  width: 90%;
+  height: 100rpx;
+  margin:5%;
+  margin-bottom: 2%;
+}
+
+page {
+  background-color: #F8F8F8;
+  height: 100%;
+  font-size: 30rpx;
+  line-height: 1.6;
+  /* 覆盖一下界面css */
+  overflow: scroll;
+  width: 750rpx;
+}
+.remind{
+  display: flex;
+  justify-content: center;  
+  color: rgb(153, 153, 153);
+  font-size: 25rpx;
+  width: 90%;
+}
+.textArea{
+  background-color: #F6F6F6;
+  margin: 20rpx;
+  border-radius: 16rpx;
+  box-sizing: content-box;
+  padding: 20rpx;
+  position: relative;
+}
+.submitBtnView{
+  margin: 20rpx;
+}

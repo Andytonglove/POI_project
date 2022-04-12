@@ -109,6 +109,7 @@ Page({
     });
   },
   navigate: function (e) {
+    // 导航模块，api存在问题todo
     wx.openLocation({
       latitude: this.data.store.latitude,
       longitude: this.data.store.longitude,
@@ -122,6 +123,14 @@ Page({
     const _id = this.data.store._id;
     wx.navigateTo({
       url: "../check/check?id=" + _id,
+    });
+  },
+  // 跳转到消息留言板模块
+  jumpMsg: function () {
+    const _id = this.data.store._id;
+    wx.navigateTo({
+      // url: "../message/message?id=" + _id,
+      url: "../msgpage/msgpage?id=" + _id,
     });
   },
   deleteItem: function (e) {

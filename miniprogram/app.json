@@ -11,7 +11,8 @@
     "pages/article/article",
     "pages/test/test",
     "pages/check/check",
-    "pages/message/message"
+    "pages/message/message",
+    "pages/msgpage/msgpage"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -37,6 +38,16 @@
     "van-col": "@vant/weapp/col/index",
     "van-uploader": "@vant/weapp/uploader/index",
     "van-divider": "@vant/weapp/divider/index",
-    "van-popup": "@vant/weapp/popup/index"
+    "van-popup": "@vant/weapp/popup/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-skeleton": "@vant/weapp/skeleton/index",
+    "van-tag": "@vant/weapp/tag/index"
+  },
+  "plugins": {
+    "routePlan": {
+      "version": "1.0.19",
+      "provider": "wx50b5593e81dd937a"
+    }
   }
 }
