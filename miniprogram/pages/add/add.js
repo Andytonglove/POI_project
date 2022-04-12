@@ -17,7 +17,8 @@ Page({
       address: "black",
       problemLabel: "black",
       images: "black",
-    }
+    },
+    isChecked: 0
   },
 
   /**
@@ -115,7 +116,9 @@ Page({
             iconPath: this.data.iconPath,
             images: this.data.images,
             content: event.detail.value.content,
-            userName: wx.getStorageSync('nickName')
+            userName: wx.getStorageSync('nickName'),
+            // 这里加入是否核验模块，0代表未核验、1已核验、2已解决……
+            isChecked: 0
           },
         })
         .then((res) => {

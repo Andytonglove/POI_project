@@ -116,11 +116,12 @@ Page({
       address: this.data.store.address,
     });
   },
-  // TODO 核验模块，可单独加入插件
-  check: function (e) {
+  // 核验模块，可单独加入插件，这里跳转加传参id
+  check: function (event) {
+    console.log("marker核验", event);
+    const _id = this.data.store._id;
     wx.navigateTo({
-      // url: "../add/add",
-      url: "../check/check",
+      url: "../check/check?id=" + _id,
     });
   },
   deleteItem: function (e) {
