@@ -109,6 +109,7 @@ Page({
     });
   },
   navigate: function (e) {
+    // 导航模块，api存在问题todo
     wx.openLocation({
       latitude: this.data.store.latitude,
       longitude: this.data.store.longitude,
