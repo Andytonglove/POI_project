@@ -38,7 +38,11 @@
     "van-col": "@vant/weapp/col/index",
     "van-uploader": "@vant/weapp/uploader/index",
     "van-divider": "@vant/weapp/divider/index",
-    "van-popup": "@vant/weapp/popup/index"
+    "van-popup": "@vant/weapp/popup/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-skeleton": "@vant/weapp/skeleton/index",
+    "van-tag": "@vant/weapp/tag/index"
   },
   "plugins": {
     "routePlan": {

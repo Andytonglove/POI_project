@@ -23,7 +23,7 @@
  >
   <form bindsubmit="onSubmit">
     <view class="writeView">
-      <van-cell title="创建留言板"/>
+      <van-cell title="创建留言板"></van-cell>
       <view class="textArea">
         <textarea
           value="{{textValue}}"
@@ -53,12 +53,12 @@
   row="10"
   loading="{{loading}}"
 >
-  <navigator url="../msgPages/msgPages?id=e8b1b114-58b6-4f8a-9a93-faa7ef17d369">
+  <navigator url="../message/message?id=e8b1b114-58b6-4f8a-9a93-faa7ef17d369">
     <van-cell title="留言板 Test" label="这是测试用的留言板，所有人都可见~ 普通用户只能添加留言，管理员可以回复、置顶、删除留言~"
 />
   </navigator>
   <block wx:for='{{pageList}}' wx:key="_id" wx:if='{{authority}}'> 
-    <navigator url="../msgPages/msgPages?id={{item._id}}">
+    <navigator url="../message/message?id={{item._id}}">
       <van-cell title="{{item.name}}" label="{{item.discribe}}"/>
     </navigator>
   </block>

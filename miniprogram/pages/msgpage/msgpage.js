@@ -5,7 +5,6 @@ const msgpages = db.collection("msgpages");
 const author = db.collection("author");
 Page({
 
-
   data: {
     authority: false,
     show: false, // 是否弹出留言面板
@@ -48,6 +47,7 @@ Page({
     }).then(res => {
       console.log(res.result.data)
       this.setData({
+        // 这里如果渲染到pageList存在问题，注意配置van-cell等组件即可
         pageList: res.result.data,
         loading: false
       })
@@ -60,6 +60,7 @@ Page({
     wx.cloud.callFunction({
       name: 'getUserOpenId',
       complete: res => {
+        // todo 用户权限验证，这里先写死成默认管理员
         // db.collection('author').get().then(res2 => {
         //   if (res.result.openid === res2.data[0]._openid) {
         //     this.setData({
