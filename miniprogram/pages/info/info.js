@@ -124,6 +124,12 @@ Page({
       url: "../check/check?id=" + _id,
     });
   },
+  // 跳转到消息留言板模块
+  jumpMsg: function () {
+    wx.navigateTo({
+      url: "../message/message",
+    });
+  },
   deleteItem: function (e) {
     wx.showModal({
       title: "删除确认",

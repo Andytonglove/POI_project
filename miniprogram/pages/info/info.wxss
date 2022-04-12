@@ -86,3 +86,14 @@ swiper {
   font-weight: 200;
   background-color: #007ce6;
 }
+
+.jumpMsg {
+  position: absolute;
+  /* left: center; */
+  bottom: 0;
+  text-align: center;
+  width: 30px;
+  background-color: #fff;
+  padding: 10px;
+  /* box-shadow: 1px 2px 3px #999999; */
+}
