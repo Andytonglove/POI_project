@@ -111,10 +111,10 @@ Page({
     });
   },
   navigate: function (e) {
-    // 导航模块，原api即openLocation存在问题
+    // 导航模块，原api即openLocation存在问题，这个可以
     let referer = '路线规划';   //调用插件的app的名称
     let endPoint = JSON.stringify({  //终点
-        'name': this.data.store.title,
+        'name': this.data.store.address,
         'latitude': this.data.store.latitude,
         'longitude': this.data.store.longitude,
     });
