@@ -35,6 +35,7 @@ Page({
         name: 'toTop',
         data: {
           id: e.currentTarget.dataset.msgid,
+          cnt: 0, // 节流阀
         }
       }).then(res => {
         wx.showToast({
@@ -47,9 +48,10 @@ Page({
       })
     }else{
       wx.cloud.callFunction({
-        name: 'notTop',
+        name: 'toTop', // notTop
         data: {
           id: e.currentTarget.dataset.msgid,
+          cnt: 1,
         }
       }).then(res => {
         wx.showToast({
