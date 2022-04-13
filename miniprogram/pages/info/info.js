@@ -2,6 +2,8 @@ const app = getApp();
 const db = wx.cloud.database();
 const store = db.collection("store");
 const config = require("../../config.js");
+const plugin = requirePlugin('routePlan');
+
 Page({
   /**
    * 页面的初始数据
@@ -109,12 +111,16 @@ Page({
     });
   },
   navigate: function (e) {
-    // 导航模块，api存在问题todo
-    wx.openLocation({
-      latitude: this.data.store.latitude,
-      longitude: this.data.store.longitude,
-      name: this.data.store.title,
-      address: this.data.store.address,
+    // 导航模块，原api即openLocation存在问题
+    let referer = '路线规划';   //调用插件的app的名称
+    let endPoint = JSON.stringify({  //终点
+        'name': this.data.store.title,
+        'latitude': this.data.store.latitude,
+        'longitude': this.data.store.longitude,
+    });
+    console.log(endPoint)
+    wx.navigateTo({
+        url: 'plugin://routePlan/index?key=' + config.mapSubKey + '&referer=' + referer + '&endPoint=' + endPoint
     });
   },
   // 核验模块，可单独加入插件，这里跳转加传参id
