@@ -3,7 +3,7 @@
 const db = wx.cloud.database();
 const message = db.collection("message");
 const author = db.collection("author");
-const lessonSubId = 'wpWjGZ2n58TiFg_tkTpXj3zUhFjmeOaHwNVl1WmSOD4'; // 订阅消息模板id
+// const lessonSubId = 'wpWjGZ2n58TiFg_tkTpXj3zUhFjmeOaHwNVl1WmSOD4'; // 订阅消息模板id
 
 Page({
 
@@ -13,7 +13,7 @@ Page({
     
     show: false, // 是否弹出留言面板
     showReply: false, // 是否弹出回复面板
-    authority: true, // 鉴权
+    authority: false, // 鉴权
     loading: true,  // 是否正在加载
     textValue:"",
     replyMsgId:"",
@@ -85,39 +85,76 @@ Page({
   
   // 获取用户信息
   onInfo:function(e){
-    console.log(e.detail.userInfo)
-    if (e.detail.errMsg === "getUserInfo:ok"){
-      this.showPopup()
-      this.setData({
-        imageSrc: e.detail.userInfo.avatarUrl,
-        name: e.detail.userInfo.nickName,
+    // console.log(e.detail.userInfo)
+    // if (e.detail.errMsg === "getUserInfo:ok"){
+    //   this.showPopup()
+    //   this.setData({
+    //     imageSrc: e.detail.userInfo.avatarUrl,
+    //     name: e.detail.userInfo.nickName,
+    //   })
+    // }
+
+    this.setData({
+      imageSrc: wx.getStorageSync('avatarUrl'),
+      name: wx.getStorageSync('nickName')
+    })
+    if (!this.data.name && !this.data.imageSrc) {
+      wx.getUserProfile({
+        desc: '用于留言的个人信息',
+        success: (res) => {
+          this.setData({
+            name: res.userInfo.nickName,
+            imageSrc: res.userInfo.avatarUrl,
+          })
+          wx.setStorageSync("avatarUrl", res.userInfo.avatarUrl);
+          wx.setStorageSync("nickName", res.userInfo.nickName);
+          this.showPopup()
+        }
       })
-    }
+    } else {
+      this.showPopup()
+    } 
   },
 
   // 判断用户权限
-  authentication:function(){   
-    wx.cloud.callFunction({
-      name: 'getUserOpenId',
-      complete: res => {
-        // console.log(res)
-        this.setData({
-          userId: res.result.openid
-        })
+  authentication:function(){
+    const _userId = wx.getStorageSync("openId");
+    this.setData({
+      userId: _userId,
+      // authority: true
+    })
+    db.collection('author').get().then(res2 => {
+      // console.log(res.result.event.userInfo.openId)
+      // console.log(res2.data[0]._openid)
+      if (this.data.userId === res2.data[0]._openid){
+        // 这里判断是否是管理员
         this.setData({
           authority:true
         })
-        // db.collection('author').get().then(res2 => {
-        //   // console.log(res.result.event.userInfo.openId)
-        //   // console.log(res2.data[0]._openid)
-        //   if (res.result.openid === res2.data[0]._openid){
-        //     this.setData({
-        //       authority:true
-        //     })
-        //   }
-        // })
       }
     })
+
+    // wx.cloud.callFunction({
+    //   name: 'getUserOpenId',
+    //   complete: res => {
+    //     // console.log(res)
+    //     this.setData({
+    //       userId: res.result.openid
+    //     })
+    //     this.setData({
+    //       authority:true
+    //     })
+    //     db.collection('author').get().then(res2 => {
+    //       // console.log(res.result.event.userInfo.openId)
+    //       // console.log(res2.data[0]._openid)
+    //       if (res.result.openid === res2.data[0]._openid){
+    //         this.setData({
+    //           authority:true
+    //         })
+    //       }
+    //     })
+    //   }
+    // })
   },
 
   // 提交回复
@@ -159,33 +196,45 @@ Page({
         templateId: lessonSubId,
         id: this.data.replyMsgId,
         userId:this.data.userId,
-        page: `pages/msgPages/msgPages?id=${this.data.pageId}`
+        page: `pages/message/message?id=${this.data.pageId}`
       }
     })
   },
  
   // 允许订阅回复消息
   subReply:function(e){
-    wx.requestSubscribeMessage({
-      tmplIds: [lessonSubId],
-      success:res => {
-        // console.log('已授权接收订阅消息')
-        wx.showToast({
-          title: "留言成功",
-          icon: "success",
-          success: res2 => {
-            this.setData({
-              textValue: ""
-            });
-            this.getData();
-          }
-        })  
+    // wx.requestSubscribeMessage({
+    //   tmplIds: [lessonSubId],
+    //   success:res => {
+    //     // console.log('已授权接收订阅消息')
+    //     wx.showToast({
+    //       title: "留言成功",
+    //       icon: "success",
+    //       success: res2 => {
+    //         this.setData({
+    //           textValue: ""
+    //         });
+    //         this.getData();
+    //       }
+    //     })  
+    //   }
+    // })
+
+    // 模板id后续再做，这里不订阅消息直接评论
+    wx.showToast({
+      title: "留言成功",
+      icon: "success",
+      success: res2 => {
+        this.setData({
+          textValue: ""
+        });
+        this.getData();
       }
     })
   },
 
 
-  // 提交留言
+  // 提交留言，评论
   onSubmit:function(e){
     // console.log(e.detail.value.msgInput);
     message.add({
@@ -272,7 +321,7 @@ Page({
     wx.cloud.callFunction({
       name: 'getQ',
       data: {
-        path: `pages/msgPages/msgPages?id=${this.data.pageId}`,
+        path: `pages/message/message?id=${this.data.pageId}`,
         id: this.data.pageId,
       }
     }).then(res =>{
