@@ -161,7 +161,7 @@ Page({
             })
             .catch((error) => {
               wx.showToast({
-                title: "删除失败！请添加微信 todo 排查问题",
+                title: "删除失败！请添加小程序开发者微信 排查问题",
               });
             });
         } else if (res.cancel) {

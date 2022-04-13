@@ -42,6 +42,10 @@
   <cover-view class="searchLocation" bindtap="searchLocation">
     <cover-image src="../../images/home/searchLocation.png"></cover-image>
   </cover-view>
+  <!-- 新增的todolist待办列表按钮，或许可以配合customCallout展示红绿灯状态 -->
+  <cover-view class="todolist" bindtap="openTodoList">
+    <cover-image src="../../images/home/todolist-green.png"></cover-image>
+  </cover-view>
   <cover-view class="nav">
     <cover-view class="nav-tabbar">
       <!-- 上传新增 -->

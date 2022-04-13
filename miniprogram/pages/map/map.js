@@ -301,6 +301,13 @@ Page({
     });
   },
 
+  // 待办事项列表跳转
+  openTodoList: function () {
+    wx.navigateTo({
+      url: "../search/search",
+    });
+  },
+
   /**
    * 用户点击右上角分享
    */
