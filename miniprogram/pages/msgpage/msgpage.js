@@ -60,17 +60,17 @@ Page({
     wx.cloud.callFunction({
       name: 'getUserOpenId',
       complete: res => {
-        // todo 用户权限验证，这里先写死成默认管理员
-        // db.collection('author').get().then(res2 => {
-        //   if (res.result.openid === res2.data[0]._openid) {
-        //     this.setData({
-        //       authority: true
-        //     })
-        //   }
-        // })
-        this.setData({
-          authority: true
+        // 用户权限验证，这里验证是否是管理员，默认管理员需要在author数据库中配置_openid
+        db.collection('author').get().then(res2 => {
+          if (res.result.openid === res2.data[0]._openid) {
+            this.setData({
+              authority: true
+            })
+          }
         })
+        // this.setData({
+        //   authority: true
+        // })
       }
     })
   },
