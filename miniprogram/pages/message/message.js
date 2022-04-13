@@ -3,7 +3,7 @@
 const db = wx.cloud.database();
 const message = db.collection("message");
 const author = db.collection("author");
-const lessonSubId = 'wpWjGZ2n58TiFg_tkTpXj3zUhFjmeOaHwNVl1WmSOD4'; // 订阅消息模板id
+// const lessonSubId = 'wpWjGZ2n58TiFg_tkTpXj3zUhFjmeOaHwNVl1WmSOD4'; // 订阅消息模板id
 
 Page({
 
@@ -192,20 +192,32 @@ Page({
  
   // 允许订阅回复消息
   subReply:function(e){
-    wx.requestSubscribeMessage({
-      tmplIds: [lessonSubId],
-      success:res => {
-        // console.log('已授权接收订阅消息')
-        wx.showToast({
-          title: "留言成功",
-          icon: "success",
-          success: res2 => {
-            this.setData({
-              textValue: ""
-            });
-            this.getData();
-          }
-        })  
+    // wx.requestSubscribeMessage({
+    //   tmplIds: [lessonSubId],
+    //   success:res => {
+    //     // console.log('已授权接收订阅消息')
+    //     wx.showToast({
+    //       title: "留言成功",
+    //       icon: "success",
+    //       success: res2 => {
+    //         this.setData({
+    //           textValue: ""
+    //         });
+    //         this.getData();
+    //       }
+    //     })  
+    //   }
+    // })
+
+    // 模板id后续再做，这里不订阅消息直接评论
+    wx.showToast({
+      title: "留言成功",
+      icon: "success",
+      success: res2 => {
+        this.setData({
+          textValue: ""
+        });
+        this.getData();
       }
     })
   },
