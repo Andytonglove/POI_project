@@ -31,12 +31,10 @@ Page({
   // 置顶
   toTop:function(e){
     if (!e.currentTarget.dataset.msgdata.top) {
-      wx.cloud.callFunction({
-        name: 'toTop',
+      message.doc(e.currentTarget.dataset.msgid).update({
         data: {
-          id: e.currentTarget.dataset.msgid,
-          cnt: 0, // 节流阀
-        }
+          top: true,
+        },
       }).then(res => {
         wx.showToast({
           title: "置顶成功",
@@ -46,22 +44,50 @@ Page({
           }
         })
       })
-    }else{
-      wx.cloud.callFunction({
-        name: 'toTop', // notTop
-        data: {
-          id: e.currentTarget.dataset.msgid,
-          cnt: 1,
-        }
-      }).then(res => {
-        wx.showToast({
-          title: "取消成功",
-          icon: "success",
-          success: res2 => {
-            this.getData();
-          }
-        })
-      })
+    }else{message.doc(e.currentTarget.dataset.msgid).update({
+      data: {
+        top: false,
+      },
+    }).then(res => {
+            wx.showToast({
+              title: "取消成功",
+              icon: "success",
+              success: res2 => {
+                this.getData();
+              }
+            })
+          })
+    //   wx.cloud.callFunction({
+    //     name: 'toTop',
+    //     data: {
+    //       id: e.currentTarget.dataset.msgid,
+    //       cnt: 0, // 节流阀
+    //     }
+    //   }).then(res => {
+    //     wx.showToast({
+    //       title: "置顶成功",
+    //       icon: "success",
+    //       success: res2 => {
+    //         this.getData();
+    //       }
+    //     })
+    //   })
+    // }else{
+    //   wx.cloud.callFunction({
+    //     name: 'toTop', // notTop
+    //     data: {
+    //       id: e.currentTarget.dataset.msgid,
+    //       cnt: 1,
+    //     }
+    //   }).then(res => {
+    //     wx.showToast({
+    //       title: "取消成功",
+    //       icon: "success",
+    //       success: res2 => {
+    //         this.getData();
+    //       }
+    //     })
+    //   })
     }
   },
 
