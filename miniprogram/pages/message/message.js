@@ -13,7 +13,7 @@ Page({
     
     show: false, // 是否弹出留言面板
     showReply: false, // 是否弹出回复面板
-    authority: true, // 鉴权
+    authority: false, // 鉴权
     loading: true,  // 是否正在加载
     textValue:"",
     replyMsgId:"",
@@ -121,8 +121,19 @@ Page({
     const _userId = wx.getStorageSync("openId");
     this.setData({
       userId: _userId,
-      authority: true
+      // authority: true
     })
+    db.collection('author').get().then(res2 => {
+      // console.log(res.result.event.userInfo.openId)
+      // console.log(res2.data[0]._openid)
+      if (this.data.userId === res2.data[0]._openid){
+        // 这里判断是否是管理员
+        this.setData({
+          authority:true
+        })
+      }
+    })
+
     // wx.cloud.callFunction({
     //   name: 'getUserOpenId',
     //   complete: res => {
