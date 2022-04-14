@@ -8,83 +8,42 @@ Page({
    */
   data: {
     numbers: 0,
-    stores: [],
-    searched:false
+    stores: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function(options) {
+    this.loadData();
   },
-
-  LoadData:function(e){
-    store.where({
-      isChecked:0
-    }).get().then(res => {
+  loadData: function() {
+    store.skip(this.data.numbers).get().then(res => {
       /**
-       * 如果没有数据，就提示没有待办了，并返回。
+       * 如果没有数据，就提示没有商户了，并返回。
        */
       if (res.data.length == 0) {
-        this.setData({
-          searched:true
-        })
+        wx.showToast({
+          title: '没有别的兴趣点了！',
+          icon: 'none'
+        });
+        return;
       }
       this.setData({
         stores: this.data.stores.concat(res.data),
         numbers: this.data.numbers + res.data.length
       });
-  })
-},
-  
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
+  onReachBottom: function() {
+    this.loadData();
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  navigateToSearch:function(e){
+    wx.redirectTo({
+      url: '../search/search',
+    })
   }
 })

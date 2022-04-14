@@ -8,7 +8,8 @@ Page({
    */
   data: {
     numbers: 0,
-    stores: []
+    stores: [],
+    searched: false // 搜索节流阀
   },
 
   /**
@@ -18,7 +19,9 @@ Page({
     this.loadData();
   },
   loadData: function() {
-    store.skip(this.data.numbers).get().then(res => {
+    store.where({
+      ischecked:0
+    }).get().then(res => {
       /**
        * 如果没有数据，就提示没有商户了，并返回。
        */
