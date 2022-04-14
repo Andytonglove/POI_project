@@ -117,7 +117,7 @@ Page({
             images: this.data.images,
             content: event.detail.value.content,
             userName: wx.getStorageSync('nickName'),
-            // 这里加入是否核验模块，0代表未核验、1已核验、2已解决……
+            // 这里加入是否核验模块，0代表未核验、1已核验通过、2核验退回……
             isChecked: 0
           },
         })
