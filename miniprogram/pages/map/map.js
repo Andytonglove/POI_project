@@ -309,7 +309,7 @@ Page({
       success: (res) => {
         if (res.cancel == false && res.confirm == true) {
           wx.navigateTo({
-            url: "../search/search",
+            url: "../todos/todos",
           });
         } else {
           wx.showToast({
