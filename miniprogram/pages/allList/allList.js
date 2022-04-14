@@ -23,14 +23,12 @@ Page({
       ischecked:0
     }).get().then(res => {
       /**
-       * 如果没有数据，就提示没有商户了，并返回。
+       * 如果没有数据，就提示没有代办了，并返回。
        */
       if (res.data.length == 0) {
-        wx.showToast({
-          title: '没有别的兴趣点了！',
-          icon: 'none'
-        });
-        return;
+        this.setData({
+          searched:true
+        })
       }
       this.setData({
         stores: this.data.stores.concat(res.data),
