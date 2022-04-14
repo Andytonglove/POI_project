@@ -57,7 +57,10 @@
     <van-cell title="留言板 Test" label="这是测试用的留言板，所有人都可见~ 普通用户只能添加留言，管理员可以回复、置顶、删除留言~"
 />
   </navigator>
+<<<<<<< HEAD
+=======
   <!-- 去除下面留言板block的wx:if='{{authority}}' -->
+>>>>>>> 00c014800dcdee94a24aa15f65c73241f96aef20
   <block wx:for='{{pageList}}' wx:key="_id"> 
     <navigator url="../message/message?id={{item._id}}">
       <van-cell title="{{item.name}}" label="{{item.discribe}}"/>

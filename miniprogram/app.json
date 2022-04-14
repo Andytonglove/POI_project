@@ -12,7 +12,8 @@
     "pages/test/test",
     "pages/check/check",
     "pages/message/message",
-    "pages/msgpage/msgpage"
+    "pages/msgpage/msgpage",
+    "pages/todos/todos"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
