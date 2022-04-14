@@ -301,10 +301,23 @@ Page({
     });
   },
 
-  // 待办事项列表跳转
+  // 待办事项列表跳转 TODO
   openTodoList: function () {
-    wx.navigateTo({
-      url: "../search/search",
+    wx.showModal({
+      title: "兴趣点核验消息通知",
+      content: "您的兴趣点有核验更新消息，是否要进入查询界面？",
+      success: (res) => {
+        if (res.cancel == false && res.confirm == true) {
+          wx.navigateTo({
+            url: "../search/search",
+          });
+        } else {
+          wx.showToast({
+            title: "您可以通过下方筑路日志按钮查看已有提交信息",
+            icon: "none",
+          });
+        }
+      },
     });
   },
 
