@@ -9,33 +9,55 @@ Page({
   data: {
     numbers: 0,
     stores: [],
-    searched:false
+    searched:false,
+    worktype:app.globalData.is_verifier
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.LoadData();
   },
 
   LoadData:function(e){
+    if(this.worktype){
     store.where({
       isChecked:0
     }).get().then(res => {
-      /**
-       * 如果没有数据，就提示没有待办了，并返回。
-       */
-      if (res.data.length == 0) {
+        /**
+         * 如果没有数据，就提示没有待办了，并返回。
+         */
+        if (res.data.length == 0) {
+          this.setData({
+            searched:true
+          })
+        }
         this.setData({
-          searched:true
-        })
-      }
-      this.setData({
-        stores: this.data.stores.concat(res.data),
-        numbers: this.data.numbers + res.data.length
-      });
-  })
+          stores: this.data.stores.concat(res.data),
+          numbers: this.data.numbers + res.data.length
+        });
+    })
+  }else{
+    const _userId = wx.getStorageSync("openId");
+    store.where({
+      _openid:_userId,
+      isChecked:2,
+    }).get().then(res => {
+        /**
+         * 如果没有数据，就提示没有待办了，并返回。
+         */
+        if (res.data.length == 0) {
+          this.setData({
+            searched:true
+          })
+        }
+        this.setData({
+          stores: this.data.stores.concat(res.data),
+          numbers: this.data.numbers + res.data.length
+        });
+    })
+  }
 },
   
 
@@ -78,7 +100,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.LoadData();
   },
 
   /**
