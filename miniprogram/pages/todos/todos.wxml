@@ -1,8 +1,7 @@
-<!--pages/todos/todos.wxml-->
 <block wx:if="{{stores}}" wx:for="{{stores}}" wx:key="_id">
   <navigator url="../info/info?id={{item._id}}">
     <view class="card">
-      <view class="card_title">{{item.problemLabel}}</view>
+      <view class="card_title">{{item.title}}</view>
       <view class="card_infobar">
         <view class="card_address">{{item.address}}</view>
       </view>

@@ -20,6 +20,11 @@ App({
     if (showAdmin == ""){
       showAdmin = false;
     }
-    this.globalData = { windowHeight, is_administrator: false, showAdmin: showAdmin}
+    this.globalData = { 
+       windowHeight,
+       is_administrator: false, 
+       showAdmin: showAdmin,
+       is_verifier: false,
+      }
   }
 })
