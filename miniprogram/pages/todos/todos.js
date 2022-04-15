@@ -20,6 +20,7 @@ Page({
     this.setData({
       worktype:app.globalData.is_verifier,
     });
+    this.LoadData();
   },
 
   LoadData:function(e){
@@ -74,7 +75,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.LoadData();
+
   },
 
   /**
