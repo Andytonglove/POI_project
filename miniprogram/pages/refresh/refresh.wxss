@@ -1,0 +1,58 @@
+/* pages/check/check.wxss */
+@import "../../colorui/main.wxss";
+@import "../../colorui/icon.wxss";
+page {
+  background-color: #ffffff;
+}
+
+.form {
+  padding: 20px;
+}
+
+.form-item {
+  margin-bottom: 18px;
+}
+
+.item-title {
+  padding: 20rpx 20rpx 20rpx 0;
+  font-size: 18px;
+  font-weight: normal;
+  display: flex;
+  flex-direction: row;
+}
+
+.item-desc {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #adadad;
+}
+
+.loactionGroup {
+  display: flex;
+  flex-direction: row;
+}
+
+.loactionGroup input {
+  width: 80%;
+  height: 40rpx;
+  margin-left: 5px;
+  border: none;
+}
+
+textarea {
+  border: 1px solid #dededd;
+  padding: 20rpx;
+  width: 90%;
+}
+
+.submit {
+  margin-top: 40rpx;
+  width: 100%;
+  background-color: #007ae7;
+  color: #ffffff;
+}
+
+.is-ness:before {
+  content: '* ';
+  color: red;
+}

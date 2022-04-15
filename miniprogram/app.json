@@ -13,7 +13,9 @@
     "pages/check/check",
     "pages/message/message",
     "pages/msgpage/msgpage",
-    "pages/todos/todos"
+    "pages/todos/todos",
+    "pages/refresh/refresh",
+    "pages/verify/verify"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

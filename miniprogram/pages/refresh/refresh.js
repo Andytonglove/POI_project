@@ -1,3 +1,4 @@
+// pages/check/check.js
 const app = getApp();
 const db = wx.cloud.database();
 const store = db.collection("store");
@@ -19,8 +20,6 @@ Page({
       images: "black",
     },
     isChecked: 0
-
-    
   },
 
   /**
@@ -89,7 +88,7 @@ Page({
     }
   },
 
-  createItem: function (event) {
+  updateItem: function (event) {
     this.setData({
       titleColor: {
         address: (!this.data.address || !this.data.longitude) ? "red" : "black",
@@ -107,8 +106,12 @@ Page({
         title: "上传数据中...",
       });
       this.createUserInfo();
+      // 这里要改成更新该点的数据
       store
-        .add({
+        .where({
+          _id: this.options.id,
+        })
+        .update({
           data: {
             createTime: new Date(),
             address: this.data.address,
@@ -118,15 +121,15 @@ Page({
             iconPath: this.data.iconPath,
             images: this.data.images,
             content: event.detail.value.content,
+            // 这里应该加上修改列表而非覆盖 TODO
             userName: wx.getStorageSync('nickName'),
-            // 这里加入是否核验模块，0代表未核验、1已核验通过、2核验退回……
-            isChecked: 0
+            isChecked: 1
           },
         })
         .then((res) => {
           wx.hideLoading();
           wx.showToast({
-            title: "创建成功！",
+            title: "核验成功！",
             icon: "success",
             success: (res) => {
               wx.navigateTo({
