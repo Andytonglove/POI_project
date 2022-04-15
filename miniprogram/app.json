@@ -43,7 +43,8 @@
     "van-cell": "@vant/weapp/cell/index",
     "van-cell-group": "@vant/weapp/cell-group/index",
     "van-skeleton": "@vant/weapp/skeleton/index",
-    "van-tag": "@vant/weapp/tag/index"
+    "van-tag": "@vant/weapp/tag/index",
+    "van-picker": "@vant/weapp/picker/index"
   },
   "plugins": {
     "routePlan": {

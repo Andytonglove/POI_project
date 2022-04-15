@@ -17,8 +17,12 @@ Page({
       address: "black",
       problemLabel: "black",
       images: "black",
+      type: "black"
     },
-    isChecked: 0
+    isChecked: 0,
+    showPicker: false,
+    type: "",
+    columnsType: ["餐饮","购物","住宿","出行","文体娱乐","金融服务","生活服务","汽车服务","教育","医疗","房产","旅游","企事业单位","行政机构","公共服务设施","其他"]
   },
 
   /**
@@ -92,10 +96,11 @@ Page({
       titleColor: {
         address: (!this.data.address || !this.data.longitude) ? "red" : "black",
         problemLabel: !this.data.problemLabel ? "red" : "black",
+        type: !this.data.type ? "red" : "black",
         images: !this.data.images.length ? "red" : "black",
       }
     })
-    if (!this.data.address || !this.data.longitude || !this.data.problemLabel || !this.data.images.length) {
+    if (!this.data.address || !this.data.longitude || !this.data.problemLabel || !this.data.images.length || !this.data.type) {
       wx.showToast({
         title: "缺少必填项",
         icon: "error",
@@ -117,8 +122,9 @@ Page({
             images: this.data.images,
             content: event.detail.value.content,
             userName: wx.getStorageSync('nickName'),
-            // 这里加入是否核验模块，0代表未核验、1已核验通过、2核验退回……
-            isChecked: 0
+            // 这里加入是否核验模块,0代表未核验、1已核验通过、2核验退回……
+            isChecked: 0,
+            type: this.data.type,
           },
         })
         .then((res) => {
@@ -137,6 +143,38 @@ Page({
           console.error(error);
         });
     }
+  },
+
+  // 兴趣点类型
+  showPopupPicker: function () {
+    this.setData({
+      showPicker: true
+    })
+  },
+
+  onConfirmType: function (event) {
+    console.log("已确认，您选择的选项类型为"+event.detail.value)
+    this.setData({
+      type: event.detail.value,
+      showPicker: false
+    })
+  },
+
+  onCancelType: function (event) {
+    this.setData({
+      showPicker: false
+    })
+    console.log("取消：关闭弹出窗口")
+  },
+
+  onCloseType: function () {
+    this.setData({
+      showPicker: false
+    })
+  },
+
+  onChangeType: function (e) {
+    console.log("您改变了选项为"+e.detail.value)
   },
 
   uploadImage: function (e) {
