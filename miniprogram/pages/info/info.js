@@ -8,7 +8,9 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    worktype:false,
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -35,6 +37,16 @@ Page({
           }
         );
       });
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    this.setData({
+      worktype: app.globalData.is_verifier,
+    })
+    console.log(this.data.worktype)
   },
 
   tapImage: function (e) {
