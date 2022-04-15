@@ -314,11 +314,11 @@ Page({
       content: "您的兴趣点有核验更新消息，是否要进入查询界面？",
       success: (res) => {
         if (res.cancel == false && res.confirm == true) {
-          if(!this.data.done){
+          if (!this.data.done) {
             wx.navigateTo({
               url: "../todos/todos",
             });
-          }else{
+          } else {
             wx.showToast({
               title: "您目前没有新待办任务通知！",
               icon: "none",
