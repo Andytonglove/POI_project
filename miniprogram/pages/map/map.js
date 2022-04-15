@@ -365,7 +365,18 @@ Page({
           this.setData({
             workType: !this.data.workType,
           });
-          app.globalData.is_verifier = this.workType;
+          app.globalData.is_verifier = this.data.workType;
+          if(this.data.workType){
+            wx.showToast({
+              title: "您已经转换身份为核验者！",
+              icon: "none",
+            });
+          }else{
+            wx.showToast({
+              title: "您已经转换身份为采集者！",
+              icon: "none",
+            });
+          }
         }
       },
     });
