@@ -21,7 +21,7 @@ Page({
     windowHeight: app.globalData.windowHeight,
     defaultScale: config.default_scale,
     done:true,
-    workType:app.globalData.is_verifier,
+    workType:false,
   },
 
   /**
@@ -44,7 +44,6 @@ Page({
       title: "双指缩放可以调整地图可视区域",
       icon: "none",
     });
-    this.isdone;
   },
 
   /**
@@ -52,7 +51,11 @@ Page({
    */
 
   onShow: function () {
+    this.setData({
+      workType:app.globalData.is_verifier,
+    });
     this.getMarkerData();
+    this.isdone();
   },
 
   goToIntro: function () {
@@ -324,52 +327,57 @@ Page({
     });
   },
 // 判断是否有待办事项
-  isdone:function(){
-    if(this.workType){ // 有bug，this.workType 判断有问题
-      const todoNum = store
-        .where({
+  isdone:function () {
+    if(this.data.workType){
+    store.where({
           isChecked:0,
         })
-        .count();
-      if(todoNum!=0){
-        this.setData({
-          done:false,
-        });
-      }
+        .count().then(res=>{
+          if(res.total!=0){
+            this.setData({
+              done:false,
+            });
+          }else{
+            this.setData({
+              done:true,
+            });
+          }
+        })
     }else{
       const openId = wx.getStorageSync("openId");
-      const todoNum = store
-        .where({
+      store.where({
           _openid: openId,
           isChecked:2,
         })
-        .count();
-      if(todoNum!=0){
-        this.setData({
-          done:false,
-        });
-      }
+        .count().then(res=>{
+          if(res.total!=0){
+            this.setData({
+              done:false,
+            });
+          }else{
+            this.setData({
+              done:true,
+            });
+          }
+        })
     }
   },
 // 采集者、核验者转换
   transWorkType:function(){
-    // this.setData({
-    //   workType:!this.workType,
-    // });
-    // app.globalData.is_verifier=this.workType;
     wx.showModal({
       title: "转换身份消息通知",
       content: "是否确定转换身份？",
       success: (res) => {
         if (res.cancel == false && res.confirm == true) {
           this.setData({
-            workType:!this.workType,
+            workType:!(this.data.workType),
           });
-          app.globalData.is_verifier=this.workType;
+          app.globalData.is_verifier=this.data.workType;
+          this.isdone();// 判断转换后身份是否有待办
         }
       },
+
     });
-    this.isdone();// 判断转换后身份是否有待办
   },
 
   /**

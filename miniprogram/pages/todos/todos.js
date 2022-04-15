@@ -10,18 +10,20 @@ Page({
     numbers: 0,
     stores: [],
     searched:false,
-    worktype:app.globalData.is_verifier
+    worktype:false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.LoadData();
+    this.setData({
+      worktype:app.globalData.is_verifier,
+    });
   },
 
   LoadData:function(e){
-    if(this.worktype){
+    if(this.data.worktype){
     store.where({
       isChecked:0
     }).get().then(res => {
@@ -72,7 +74,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.LoadData();
   },
 
   /**
