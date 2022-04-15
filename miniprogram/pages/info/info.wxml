@@ -18,7 +18,7 @@
   <view class="address">
     <!-- <van-icon name="location-o" class="text-blue margin-right-df" /> -->
     <text class="cuIcon-location text-blue margin-right-df"></text>
-    {{store.address}}
+    {{store.address}} [<text class="type">{{store.type}}</text>]
   </view>
 </view>
 <block wx:if="{{is_administrator}}">

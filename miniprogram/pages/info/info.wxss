@@ -46,6 +46,11 @@ swiper {
   text-align: center;
 }
 
+.type {
+  display: inline-block;
+  color: #7795f8;
+}
+
 
 
 

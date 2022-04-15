@@ -21,7 +21,8 @@
         <view class="item-bottom">
             <view class="item-address">
                 <van-icon name="location-o" color="#007ae7" style="margin-right:5px;" />
-                {{item.address}}
+                <!-- {{item.address}} -->
+                {{item.address}} [<text class="type">{{item.type}}</text>]
             </view>
             <view class="item-content">你第{{item.id+1}}次上传了{{item.problemLabel}}问题，帮助了友好兴趣点地图的修筑。</view>
             <view class="imgList">
