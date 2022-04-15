@@ -20,8 +20,8 @@ Page({
     showAdmin: false,
     windowHeight: app.globalData.windowHeight,
     defaultScale: config.default_scale,
-    done:true,
-    workType:app.globalData.is_verifier,
+    done: true,
+    workType: app.globalData.is_verifier,
   },
 
   /**
@@ -124,8 +124,8 @@ Page({
             // }
           });
           this.setData({
-              stores: data,
-            },
+            stores: data,
+          },
             () => {
               wx.hideLoading();
             }
@@ -323,36 +323,36 @@ Page({
       },
     });
   },
-// 判断是否有待办事项
-  isdone:function(){
-    if(this.workType){ // 有bug，this.workType 判断有问题
+  // 判断是否有待办事项
+  isdone: function () {
+    if (this.workType) { // 有bug，this.workType 判断有问题
       const todoNum = store
         .where({
-          isChecked:0,
+          isChecked: 0,
         })
         .count();
-      if(todoNum!=0){
+      if (todoNum != 0) {
         this.setData({
-          done:false,
+          done: false,
         });
       }
-    }else{
+    } else {
       const openId = wx.getStorageSync("openId");
       const todoNum = store
         .where({
           _openid: openId,
-          isChecked:2,
+          isChecked: 2,
         })
         .count();
-      if(todoNum!=0){
+      if (todoNum != 0) {
         this.setData({
-          done:false,
+          done: false,
         });
       }
     }
   },
-// 采集者、核验者转换
-  transWorkType:function(){
+  // 采集者、核验者转换
+  transWorkType: function () {
     // this.setData({
     //   workType:!this.workType,
     // });
@@ -363,9 +363,9 @@ Page({
       success: (res) => {
         if (res.cancel == false && res.confirm == true) {
           this.setData({
-            workType:!this.workType,
+            workType: !this.data.workType,
           });
-          app.globalData.is_verifier=this.workType;
+          app.globalData.is_verifier = this.workType;
         }
       },
     });
