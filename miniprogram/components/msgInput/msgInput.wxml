@@ -1,0 +1,35 @@
+<view class="overlay" style='display:{{showInput ? "block" : "none"}}' catchtouchmove="true" bindtap="onCancel"></view>
+<view class="comInput" style="bottom: {{isBlur ? blurBottom : bottom}}px" wx:if="{{showInput}}">
+  <view class="top hairline">
+    <view class="cancel" bindtap="onCancel">取消</view>
+    <view class="title">错误描述</view>
+    <view class="confirm" bindtap="onComfirm">确认</view>
+  </view>
+  <view class="comtent">{{title}}</view>
+  <view style="padding:0 10px 10px 10px;">
+    <van-field
+      value="{{ inputValue }}"
+      placeholder="内容提交后将会反馈给对应采集者"
+      border="{{ false }}"
+      cursor-spacing="95"
+      input-class="border"
+      bind:change="onChange"
+      autosize="{{autoSize}}"
+      bind:keyboardheightchange="keyboardheightchange"
+      maxlength="200"
+      adjust-position="{{false}}"
+      arrow-direction="left"
+      fixed="{{true}}"
+      type="textarea"
+      bind:focus="onFoucs"
+      bind:blur="onBlur"
+      bind:linechange="onLineChange"
+      show-word-limit
+      auto-focus
+      focus
+      placeholder-class="place"
+      input-class="com-input-class"
+      show-confirm-bar="{{ false }}"
+    />
+  </view>
+</view>

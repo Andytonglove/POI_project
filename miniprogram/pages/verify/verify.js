@@ -1,66 +1,158 @@
-// pages/verify/verify.js
+const app = getApp();
+const db = wx.cloud.database();
+const store = db.collection("store");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    titleColor: {
+      address: "black",
+      problemLabel: "black",
+      images: "black",
+    },
+    verifiers:[], // 核验者 
+    // 以下为弹出框部分
+    autoSize: {
+      maxHeight: 100,
+      minHeight: 100
+    },
+    show: false,
+    value: "",
+    bottom: 0,
+    isBlur: true,
+    blurBottom: 0,
+    errorContent:"",
+    id:"",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: "加载中...",
+    });
 
+    // 获取url页面参数
+    this.setData({
+      id:options.id,
+    })
+
+    store.doc(this.data.id).get()
+      .then((res) => {
+        this.setData(
+          {
+            store: res.data,
+            is_administrator: app.globalData.is_administrator,
+          },
+          (res) => {
+            wx.hideLoading();
+          }
+        );
+      });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  getData: function (options){
+    wx.showLoading({
+      title: "加载中...",
+    });
 
+    // 获取url页面参数
+    console.log("id", options.id);
+
+    store.doc(options.id).get()
+      .then((res) => {
+        this.setData(
+          {
+            store: res.data,
+            is_administrator: app.globalData.is_administrator,
+          },
+          (res) => {
+            wx.hideLoading();
+          }
+        );
+      });
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  onError: function(options){
+    this.setData({
+      show:true,
+    })
+    // wx.showModal({
+    //   title: "核验确认通知",
+    //   content: "是否确定驳回？",
+    //   success: (res) => {
+    //     if (res.cancel == false && res.confirm == true) {
+    //       store.where({
+    //         _id: this.options.id,
+    //       })
+    //       .update({
+    //         data:{
+    //           isChecked: 2, // 该状态表示有错误需要修改
+    //         }
+    //       });
+    //       wx.showToast({
+    //         title: "成功驳回",
+    //         icon: "none",
+    //       });
+    //       }
+    //     }
+    // });
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  onPass: function(options){
+    wx.showModal({
+      title: "核验确认通知",
+      content: "是否核验通过？",
+      success: (res) => {
+        if (res.cancel == false && res.confirm == true) {
+          store.where({
+            _id: this.options.id,
+          })
+          .update({
+            data:{
+              isChecked: 1, // 该状态表示已通过
+            }
+          });
+          wx.showToast({
+            title: "核验通过",
+            icon: "none",
+          });
+          }
+        }
+    });
+  },
+  
+  close: function(e){
+    this.setData({
+      show:false,
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  confirm: function(e){
+    wx.showModal({
+      title: "核验确认通知",
+      content: "是否确定驳回？",
+      success: (res) => {
+        if (res.cancel == false && res.confirm == true) {
+          store.where({
+            _id: this.data.id,
+          })
+          .update({
+            data:{
+              isChecked: 2, // 该状态表示有错误需要修改
+              errorContent: e.detail, // 输入的错误信息
+            }
+          });
+          console.log(e.detail)
+          wx.showToast({
+            title: "成功驳回",
+            icon: "none",
+          });
+          }
+        }
+    });
   }
 })

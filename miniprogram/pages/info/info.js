@@ -140,7 +140,7 @@ Page({
     console.log("marker核验", event);
     const _id = this.data.store._id;
     wx.navigateTo({
-      url: "../check/check?id=" + _id,
+      url: "../verify/verify?id=" + _id,
     });
   },
   // 跳转到消息留言板模块

@@ -1,1 +1,15 @@
-/* pages/verify/verify.wxss */
+.onError {
+  margin-top: 40rpx;
+  width: 50%;
+  background-color: #e73600d7;
+  color: #ffffff;
+  float: left;
+}
+
+.onPass {
+  margin-top: 40rpx;
+  width: 50%;
+  background-color: #007be7b7;
+  color: #ffffff;
+  float: right;
+}

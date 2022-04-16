@@ -1,2 +1,14 @@
-<!--pages/verify/verify.wxml-->
-<text>pages/verify/verify.wxml</text>
+<view class="form">
+  <view class="address">
+    <van-icon name="location-o" size="25px" />
+    <!-- <van-icon name="location-o" class="text-blue margin-right-df" /> -->
+    <text class="cuIcon-location text-blue margin-right-df"></text>
+    {{store.address}} [<text class="type">{{store.type}}</text>]
+  </view>
+
+  <button class='onError' bindtap="onError">驳回</button>
+  <button class='onPass' bindtap="onPass">通过</button>
+  <msgInput showInput="{{show}}" bind:close="close" bind:confirm="confirm"></msgInput>
+</view>
+
+
