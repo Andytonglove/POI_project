@@ -26,6 +26,29 @@
         </van-row>
       </van-radio-group>
     </view>
+    <view class="form-item">
+      <view class='item-title .is-ness' style="color:{{titleColor.type}}">兴趣点类型</view>
+      <van-field
+        is-link
+        readonly
+        name="type"
+        label="POI类型"
+        placeholder="点击选择兴趣点类型"
+        bindtap="showPopupPicker"
+        value="{{type}}"
+      />
+      <!-- popup、picker有cancel、confirm和change以及close监听 -->
+      <van-popup show="{{showPicker}}" position="bottom" round close-on-click-overlay bind:close="onCloseType" bind:change="onChangeType">
+        <van-picker
+          columns="{{columnsType}}"
+          bind:confirm="onConfirmType"
+          bind:cancel="onCancelType"
+          show-toolbar
+          title="兴趣点类型"
+          value="{{type}}"
+        />
+      </van-popup>
+    </view>
     <view class="form-item" style="color:{{titleColor.images}}">
       <view class='item-title .is-ness'>图片上传</view>
       <view class="item-desc">请最多上传两张完整且清晰的兴趣点问题图片</view>
