@@ -143,6 +143,14 @@ Page({
       url: "../verify/verify?id=" + _id,
     });
   },
+  // 更新模块
+  refresh: function (event) {
+    console.log("marker更新", event);
+    const _id = this.data.store._id;
+    wx.navigateTo({
+      url: "../check/check?id=" + _id,
+    });
+  },
   // 跳转到消息留言板模块
   jumpMsg: function () {
     const _id = this.data.store._id;

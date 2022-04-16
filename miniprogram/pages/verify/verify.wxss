@@ -1,3 +1,62 @@
+@import "../../colorui/main.wxss";
+@import "../../colorui/icon.wxss";
+@import "../../components/msgInput/msgInput.wxss";
+
+page {
+  width: 750rpx;
+  background-color: #fff;
+}
+
+.slide-image {
+  width: 750rpx;
+}
+
+swiper {
+  height: 424rpx;
+  background-color: #eee;
+}
+
+.content {
+
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.verifyInput {
+  margin: 0px auto;
+  display: flex;
+}
+
+.problem {
+  font-size: 60rpx;
+  font-weight: 350;
+  margin-top: 80rpx;
+  margin-bottom: 70rpx;
+  color: #0077e5;
+}
+
+.user {
+  width: 700rpx;
+  margin-bottom: 30rpx;
+  /* font-weight: 200; */
+  text-align: center;
+}
+
+.address, .time, .geoposition {
+  width: 600rpx;
+  margin-bottom: 40rpx;
+  /* font-weight: 200; */
+  text-align: center;
+}
+
+.type {
+  display: inline-block;
+  color: #7795f8;
+}
+
 .onError {
   margin-top: 40rpx;
   width: 50%;
@@ -8,6 +67,7 @@
 
 .onPass {
   margin-top: 40rpx;
+  margin-bottom: 40rpx;
   width: 50%;
   background-color: #007be7b7;
   color: #ffffff;

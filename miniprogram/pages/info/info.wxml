@@ -33,7 +33,7 @@
     <button wx:if="{{worktype}}" class='navigate' bindtap='check'>核验</button>
   </view>
   <view class="navigateBox">
-    <button wx:if="{{!worktype}}" class='navigate' bindtap='check'>更新</button>
+    <button wx:if="{{!worktype}}" class='navigate' bindtap='refresh'>更新</button>
   </view>
   <!-- 下拉按钮转到留言板模块 -->
   <cover-view class="jumpMsg" bindtap="jumpMsg">

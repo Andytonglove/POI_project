@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "msgInput":"/components/msgInput/msgInput"
-  }
+  },
+  "navigationBarTitleText": "POI核验"
 }

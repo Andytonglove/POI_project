@@ -28,10 +28,19 @@
   float: left;
   width: 50px;
   text-align: left;
-  margin-top: 10rpx;
+  /* margin-top: 10rpx; */
+  font-size: larger;
+}
+.confirm {
+  float: right;
+  width: 50px;
+  text-align: right;
+  color: #07c160;
+  font-size: larger;
 }
 .title {
   display: inline-block;
+  font-size: larger;
 }
 .release {
   float: right;

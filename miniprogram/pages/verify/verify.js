@@ -25,6 +25,7 @@ Page({
     blurBottom: 0,
     errorContent:"",
     id:"",
+    timeString:""
   },
 
   /**
@@ -51,6 +52,9 @@ Page({
             wx.hideLoading();
           }
         );
+        this.setData({
+          timeString:`${res.data.createTime.getFullYear()}年${res.data.createTime.getMonth() + 1}月${res.data.createTime.getDate()}日 ${res.data.createTime.getHours()}:${res.data.createTime.getMinutes()}:${res.data.createTime.getSeconds()}`
+        })
       });
   },
 
@@ -73,6 +77,9 @@ Page({
             wx.hideLoading();
           }
         );
+        this.setData({
+          timeString:`${res.data.createTime.getFullYear()}年${res.data.createTime.getMonth() + 1}月${res.data.createTime.getDate()}日 ${res.data.createTime.getHours()}:${res.data.createTime.getMinutes()}:${res.data.createTime.getSeconds()}`
+        })
       });
   },
 

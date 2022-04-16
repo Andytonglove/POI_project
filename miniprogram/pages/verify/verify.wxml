@@ -1,13 +1,38 @@
-<view class="form">
+<block wx:if="{{store.images}}">
+  <swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="{{5000}}" duration="{{1000}}">
+    <block wx:for="{{store.images}}">
+      <swiper-item>
+        <image src="{{item}}" data-url="{{item}}" class="slide-image" mode="aspectFit" bindtap="tapImage" />
+      </swiper-item>
+    </block>
+  </swiper>
+</block>
+<view class="content">
+  <view class="problem">{{store.problemLabel}}</view>
+  <view class="user">
+    <!-- <van-icon name="contact" class="text-blue margin-right-df" /> -->
+    <text class="cuIcon-people text-blue margin-right-df" ></text>
+    上传者：
+    <text style="font-size:40rpx;">{{store.userName || "系统管理员"}}</text>
+  </view>
   <view class="address">
-    <van-icon name="location-o" size="25px" />
     <!-- <van-icon name="location-o" class="text-blue margin-right-df" /> -->
     <text class="cuIcon-location text-blue margin-right-df"></text>
     {{store.address}} [<text class="type">{{store.type}}</text>]
   </view>
-
+  <view class="time">
+    <text class=".cuIcon-time text-blue margin-right-df"></text>
+    上传时间：{{timeString}}
+  </view>
+  <view class="geoposition">
+    <text class=".cuIcon-location text-blue margin-right-df"></text>
+    经纬度坐标：({{store.latitude}},{{store.longitude}})
+  </view>
+  <!-- 两个确认按钮 -->
   <button class='onError' bindtap="onError">驳回</button>
   <button class='onPass' bindtap="onPass">通过</button>
+</view>
+<view class="verifyInput">
   <msgInput showInput="{{show}}" bind:close="close" bind:confirm="confirm"></msgInput>
 </view>
 

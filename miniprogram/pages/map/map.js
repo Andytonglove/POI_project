@@ -307,31 +307,39 @@ Page({
     });
   },
 
-  // 待办事项列表跳转 TODO
+  // 待办事项列表跳转
   openTodoList: function () {
-    wx.showModal({
-      title: "兴趣点核验消息通知",
-      content: "您的兴趣点有核验更新消息，是否要进入查询界面？",
-      success: (res) => {
-        if (res.cancel == false && res.confirm == true) {
-          if (!this.data.done) {
-            wx.navigateTo({
-              url: "../todos/todos",
-            });
+    if(!this.data.done){
+      wx.showModal({
+        title: "兴趣点核验消息通知",
+        content: "您的兴趣点有核验更新消息，是否要进入查询界面？",
+        success: (res) => {
+          if (res.cancel == false && res.confirm == true) {
+            if (!this.data.done) {
+              wx.navigateTo({
+                url: "../todos/todos",
+              });
+            } else {
+              wx.showToast({
+                title: "您目前没有新待办任务通知！",
+                icon: "none",
+              });
+            }
           } else {
             wx.showToast({
-              title: "您目前没有新待办任务通知！",
+              title: "您可以通过下方筑路日志按钮查看已有提交信息",
               icon: "none",
             });
           }
-        } else {
-          wx.showToast({
-            title: "您可以通过下方筑路日志按钮查看已有提交信息",
-            icon: "none",
-          });
-        }
-      },
-    });
+        },
+      });
+    }else{
+      wx.showToast({
+        title: "您目前没有新待办任务通知！享受生活吧~",
+        icon: "none",
+      });
+    }
+
   },
   // 判断是否有待办事项
   isdone: function () {
