@@ -148,7 +148,7 @@ Page({
     console.log("marker更新", event);
     const _id = this.data.store._id;
     wx.navigateTo({
-      url: "../check/check?id=" + _id,
+      url: "../refresh/refresh?id=" + _id,
     });
   },
   // 跳转到消息留言板模块

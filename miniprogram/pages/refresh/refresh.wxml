@@ -1,4 +1,9 @@
-<!--pages/check/check.wxml-->
+<!--pages/refresh/refresh.wxml-->
+<view wx:if="{{showReason}}" class="error">
+    <text class=".cuIcon-warn text-red margin-right-df"></text>
+    驳回理由：{{store.errorContent}}
+    <van-divider class="divider" contentPosition="center" customStyle="color: #1989fa;border-color: #1989fa;font-size: 14px;">更新</van-divider>
+</view>
 <view class="form" report-submit='true' onsubmit="updateItem">
   <form report-submit='true' onsubmit="updateItem">
     <view class="form-item">
@@ -10,7 +15,7 @@
     </view>
     <view class="form-item">
       <view class='item-title .is-ness' style="color:{{titleColor.problemLabel}}">
-        兴趣点问题核验
+        兴趣点问题更新
         <van-icon name="question-o" style="margin-left: 8px;" bindtap="goToArticle" />
       </view>
       <van-radio-group value='{{problemLabel}}' bind:change="onChangeRadio" class="radio">
@@ -27,8 +32,31 @@
         </van-row>
       </van-radio-group>
     </view>
+    <view class="form-item">
+      <view class='item-title .is-ness' style="color:{{titleColor.type}}">兴趣点类型更新</view>
+      <van-field
+        is-link
+        readonly
+        name="type"
+        label="POI类型"
+        placeholder="点击选择兴趣点类型"
+        bindtap="showPopupPicker"
+        value="{{type}}"
+      />
+      <!-- popup、picker有cancel、confirm和change以及close监听 -->
+      <van-popup show="{{showPicker}}" position="bottom" round close-on-click-overlay bind:close="onCloseType" bind:change="onChangeType">
+        <van-picker
+          columns="{{columnsType}}"
+          bind:confirm="onConfirmType"
+          bind:cancel="onCancelType"
+          show-toolbar
+          title="兴趣点类型"
+          value="{{type}}"
+        />
+      </van-popup>
+    </view>
     <view class="form-item" style="color:{{titleColor.images}}">
-      <view class='item-title .is-ness'>核验图片上传</view>
+      <view class='item-title .is-ness'>更新图片上传</view>
       <view class="item-desc">请最多上传两张完整且清晰的兴趣点问题图片</view>
       <view class="cu-form-group">
         <view class="grid col-4 grid-square flex-sub">
@@ -45,9 +73,9 @@
       </view>
     </view>
     <view class="form-item">
-      <view class='item-title'>核验文字描述</view>
+      <view class='item-title'>更新文字描述</view>
       <textarea placeholder='请简要描述兴趣点问题....' name="content" value='{{content}}'></textarea>
     </view>
-    <button class='submit' form-type='submit'>核验确认</button>
+    <button class='submit' form-type='submit'>更新确认</button>
   </form>
 </view>

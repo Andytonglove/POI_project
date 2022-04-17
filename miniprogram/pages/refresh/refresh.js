@@ -1,4 +1,4 @@
-// pages/check/check.js
+// pages/refresh/refresh.js
 const app = getApp();
 const db = wx.cloud.database();
 const store = db.collection("store");
@@ -18,14 +18,47 @@ Page({
       address: "black",
       problemLabel: "black",
       images: "black",
+      type: "black"
     },
-    isChecked: 0
+    isChecked: 0,
+    showPicker: false,
+    type: "",
+    columnsType: ["餐饮","购物","住宿","出行","文体娱乐","金融服务","生活服务","汽车服务","教育","医疗","房产","旅游","企事业单位","行政机构","公共服务设施","其他"],
+    showReason: false // 是否显示驳回理由
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {},
+  onLoad: function (options) {
+    wx.showLoading({
+      title: "加载中...",
+    });
+    // 获取原来的信息并进行更新
+    store
+      .doc(options.id)
+      .get()
+      .then((res) => {
+        this.setData(
+          {
+            store: res.data,
+            // 这里赋值一些默认初始值，测试通过（除地点要重新选取）
+            isChecked: res.data.isChecked,
+            address: res.data.address,
+            problemLabel: res.data.problemLabel,
+            type: res.data.type
+          },
+          (res) => {
+            if(this.data.isChecked==2){
+              this.setData({
+                showReason: true,
+              })
+            }
+            wx.hideLoading();
+          }
+        );
+      });
+  },
 
   chooseLocation: function (event) {
     wx.getSetting({
@@ -93,10 +126,11 @@ Page({
       titleColor: {
         address: (!this.data.address || !this.data.longitude) ? "red" : "black",
         problemLabel: !this.data.problemLabel ? "red" : "black",
+        type: !this.data.type ? "red" : "black",
         images: !this.data.images.length ? "red" : "black",
       }
     })
-    if (!this.data.address || !this.data.longitude || !this.data.problemLabel || !this.data.images.length) {
+    if (!this.data.address || !this.data.longitude || !this.data.problemLabel || !this.data.images.length || !this.data.type) {
       wx.showToast({
         title: "缺少必填项",
         icon: "error",
@@ -121,15 +155,16 @@ Page({
             iconPath: this.data.iconPath,
             images: this.data.images,
             content: event.detail.value.content,
-            // 这里应该加上修改列表而非覆盖 TODO
+            // 这里暂时以覆盖上一次的数据为更新操作
             userName: wx.getStorageSync('nickName'),
-            isChecked: 1
+            isChecked: 0, // 1或3再改成0，需要重新核验
+            type: this.data.type,
           },
         })
         .then((res) => {
           wx.hideLoading();
           wx.showToast({
-            title: "核验成功！",
+            title: "更新成功！",
             icon: "success",
             success: (res) => {
               wx.navigateTo({
@@ -142,6 +177,38 @@ Page({
           console.error(error);
         });
     }
+  },
+
+  // 兴趣点类型
+  showPopupPicker: function () {
+    this.setData({
+      showPicker: true
+    })
+  },
+
+  onConfirmType: function (event) {
+    console.log("已确认，您选择的选项类型为"+event.detail.value)
+    this.setData({
+      type: event.detail.value,
+      showPicker: false
+    })
+  },
+
+  onCancelType: function (event) {
+    this.setData({
+      showPicker: false
+    })
+    console.log("取消：关闭弹出窗口")
+  },
+
+  onCloseType: function () {
+    this.setData({
+      showPicker: false
+    })
+  },
+
+  onChangeType: function (e) {
+    console.log("您改变了选项为"+e.detail.value)
   },
 
   uploadImage: function (e) {

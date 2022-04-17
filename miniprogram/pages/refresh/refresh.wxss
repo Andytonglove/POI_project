@@ -1,4 +1,4 @@
-/* pages/check/check.wxss */
+/* pages/refresh/refresh.wxss */
 @import "../../colorui/main.wxss";
 @import "../../colorui/icon.wxss";
 page {
@@ -6,7 +6,7 @@ page {
 }
 
 .form {
-  padding: 20px;
+  padding: 10px 20px 20px 20px;
 }
 
 .form-item {
@@ -55,4 +55,11 @@ textarea {
 .is-ness:before {
   content: '* ';
   color: red;
+}
+
+.error {
+  padding: 20px;
+  padding-bottom: 0;
+  text-align: center;
+  font-size: 16px;
 }
