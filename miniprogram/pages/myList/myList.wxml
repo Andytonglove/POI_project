@@ -2,7 +2,8 @@
     <view class="userAvatar">
         <open-data type="userAvatarUrl"></open-data>
     </view>
-    <open-data type="userNickName" class="userName" lang="zh_CN"></open-data>
+    <!-- <open-data type="userNickName" class="userName" lang="zh_CN"></open-data> -->
+    <view class="userName" lang="zh_CN">{{userNickName}}</view>
 </view>
 <view class="divider"></view>
 <view class="isEmpty" wx:if="{{isEmpty}}">

@@ -10,7 +10,7 @@
   </block>
   <!-- 新增的搜索框 -->
   <cover-view>
-    <van-search value="{{searchValue}}" placeholder="请输入POI关键词以搜索" bind:search="onSearch"></van-search>
+    <van-search class="searchline" value="{{searchValue}}" placeholder="请输入POI关键词以搜索" bind:search="onSearch" right-icon="{{UserAvatarUrl}}"></van-search>
   </cover-view>
   <!-- 问题数量表 -->
   <cover-view class="numberList">

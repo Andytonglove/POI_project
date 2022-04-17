@@ -22,7 +22,8 @@ Page({
     defaultScale: config.default_scale,
     done: true,
     workType: false,
-    searchValue: ""
+    searchValue: "",
+    UserAvatarUrl: null
   },
 
   /**
@@ -54,6 +55,7 @@ Page({
   onShow: function () {
     this.setData({
       workType: app.globalData.is_verifier,
+      UserAvatarUrl: wx.getStorageSync('avatarUrl')
     });
     this.getMarkerData();
     this.isdone();

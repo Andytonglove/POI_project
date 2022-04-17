@@ -172,6 +172,11 @@ map {
   border-radius: 4px;
 }
 
+.searchline van-icon image {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
 .todolist {
   position: absolute;
   left: 12px;

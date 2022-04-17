@@ -8,6 +8,8 @@ Page({
   data: {
     isEmpty: true,
     store: [],
+    userAvatarUrl: null,
+    userNickName: null
   },
 
   /**
@@ -45,6 +47,10 @@ Page({
           }
         );
       });
+      this.setData({
+        userAvatarUrl: wx.getStorageSync('avatarUrl') || "",
+        userNickName: wx.getStorageSync("nickName") || "微信用户"
+      })
   },
 
   /*
