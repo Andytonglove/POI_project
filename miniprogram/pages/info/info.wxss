@@ -51,6 +51,12 @@ swiper {
   color: #7795f8;
 }
 
+.typeImg {
+  float: left;
+  width: 40px;
+  height: 40px;
+}
+
 
 
 
@@ -94,12 +100,12 @@ swiper {
 
 .jumpMsg {
   position: absolute;
-  left: 85%;
+  left: 87%;
   bottom: 0;
   text-align: center;
   width: 30px;
   background-color: #fff;
-  padding: 10px;
+  padding: 5px;
   animation: jumping 1s 0s infinite;
 }
 

@@ -2,9 +2,9 @@
 <block wx:for="{{stores}}" wx:key="_id">
   <navigator url="../info/info?id={{item._id}}">
     <view class="card">
-      <view class="card_title">{{item.problemLabel}}</view>
+      <!-- <view class="card_title">{{item.problemLabel}}</view> -->
       <view class="card_infobar">
-        <view class="card_address">{{item.address}}</view>
+        <view class="card_address"><text class="cuIcon-location text-blue"> </text> {{item.address}} [<text class="type">{{item.type}}</text>] <text class="cuIcon-forward show-right"></text></view>
       </view>
     </view>
   </navigator>

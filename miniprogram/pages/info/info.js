@@ -10,6 +10,8 @@ Page({
    */
   data: {
     worktype:false,
+    isChecked: 0,
+    labelPic: null
   },
 
   /**
@@ -31,8 +33,20 @@ Page({
           {
             store: res.data,
             is_administrator: app.globalData.is_administrator,
+            isChecked: res.data.isChecked
           },
           (res) => {
+            let labelstr="";
+            if(this.data.isChecked==0){
+              labelstr="verifying"
+            }else if(this.data.isChecked==1){
+              labelstr="passed"
+            }else if(this.data.isChecked==2){
+              labelstr="errored"
+            }
+            this.setData({
+              labelPic: "../../images/marker/"+labelstr+".png"
+            })
             wx.hideLoading();
           }
         );

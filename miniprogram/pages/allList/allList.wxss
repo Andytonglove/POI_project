@@ -1,9 +1,12 @@
+@import "../../colorui/icon.wxss";
+
 .card{
   border-bottom: 1rpx solid #cecece;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding:10rpx;
+  padding: 10rpx;
+  margin: 10rpx;
 }
 .card_title{
   font-size: 50rpx;
@@ -13,6 +16,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  font-size: 70rpx;
 }
 .card_address{
   font-size: 30rpx;
@@ -34,4 +38,17 @@
 }
 .input-placeholder{
   text-align: center;
+}
+
+.type {
+  display: inline-block;
+  color: #7795f8;
+}
+.text-blue {
+  color: #7795f8;
+}
+.show-right {
+  position: absolute;
+  display: inline-block;
+  right: 12px;
 }

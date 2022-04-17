@@ -1,11 +1,16 @@
+@import "../../colorui/icon.wxss";
+
+page {
+  background-color: #fff;
+}
 .search_box{
   background-color: #eee;
   display: flex;
   padding:5rpx;
 }
 .search_title{
-text-align: center;
-font-size: 80rpx;
+  text-align: center;
+  font-size: 80rpx;
 }
 .search_input{
   background-color: #fff;
@@ -27,7 +32,8 @@ font-size: 80rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding:10rpx;
+  padding: 10rpx;
+  margin: 10rpx;
 }
 .card_title{
   font-size: 50rpx;
@@ -37,6 +43,7 @@ font-size: 80rpx;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  font-size: 70rpx;
 }
 .card_address{
   font-size: 30rpx;
@@ -56,4 +63,17 @@ font-size: 80rpx;
 }
 .view_all{
   margin-top: 40rpx;
+}
+
+.type {
+  display: inline-block;
+  color: #7795f8;
+}
+.text-blue {
+  color: #7795f8;
+}
+.show-right {
+  position: absolute;
+  display: inline-block;
+  right: 12px;
 }

@@ -8,7 +8,7 @@
   </swiper>
 </block>
 <view class="content">
-  <view class="problem">{{store.problemLabel}}</view>
+  <view class="problem"><image wx:if='{{labelPic}}' class="typeImg" src='{{labelPic}}'></image>{{store.problemLabel}}</view>
   <view class="user">
     <!-- <van-icon name="contact" class="text-blue margin-right-df" /> -->
     <text class="cuIcon-people text-blue margin-right-df" ></text>
@@ -17,7 +17,7 @@
   </view>
   <view class="address">
     <!-- <van-icon name="location-o" class="text-blue margin-right-df" /> -->
-    <text class="cuIcon-location text-blue margin-right-df"></text>
+    <text class="cuIcon-location text-blue margin-right-df inline"></text>
     {{store.address}} [<text class="type">{{store.type}}</text>]
   </view>
 </view>
