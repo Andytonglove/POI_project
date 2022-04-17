@@ -46,7 +46,8 @@
     "van-cell-group": "@vant/weapp/cell-group/index",
     "van-skeleton": "@vant/weapp/skeleton/index",
     "van-tag": "@vant/weapp/tag/index",
-    "van-picker": "@vant/weapp/picker/index"
+    "van-picker": "@vant/weapp/picker/index",
+    "van-search": "@vant/weapp/search/index"
   },
   "plugins": {
     "routePlan": {

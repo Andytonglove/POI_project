@@ -22,6 +22,7 @@ Page({
     defaultScale: config.default_scale,
     done: true,
     workType: false,
+    searchValue: ""
   },
 
   /**
@@ -304,6 +305,21 @@ Page({
   searchLocation: function () {
     wx.navigateTo({
       url: "../search/search",
+    });
+  },
+
+  helpButton: function () {
+    wx.navigateTo({
+      url: "../index/index",
+    });
+  },
+
+  onSearch: function (e) {
+    this.setData({
+      searchValue: e.detail
+    })
+    wx.navigateTo({
+      url: "../search/search?keywords="+this.data.searchValue,
     });
   },
 

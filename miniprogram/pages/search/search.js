@@ -1,6 +1,7 @@
 const app = getApp();
 const db = wx.cloud.database()
 const store = db.collection('store');
+const _ = db.command;
 Page({
 
   /**
@@ -10,7 +11,8 @@ Page({
     numbers: 0,
     stores: [],
     focus:false,
-    searched:false
+    searched:false,
+    keywords: ""
   },
 
   /**
@@ -18,7 +20,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      focus:true
+      focus:true,
+      keywords: options.keywords
     })
   },
 
@@ -32,12 +35,26 @@ Page({
     this.loadData();
   },
   loadData:function(keywords){
-    store.skip(this.data.numbers).where({
-      problemLabel: db.RegExp({
-        regexp: this.data.keywords,
-        options: 'i',
-      })
-    }).get().then(res => {
+    store.skip(this.data.numbers).where(
+      // 在数组中放查找的多个字段搜索
+      _.or([
+        {
+          problemLabel: db.RegExp({
+            regexp: this.data.keywords,
+            options: 'i',
+          })
+        },{
+          type: db.RegExp({
+            regexp: this.data.keywords,
+            options: 'i',
+          })
+        },{
+          address: db.RegExp({
+            regexp: this.data.keywords,
+            options: 'i',
+          })
+        }
+      ])).get().then(res => {
       /**
        * 如果没有数据，就提示没有商户了，并返回。
        */

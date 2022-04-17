@@ -117,7 +117,7 @@ map {
 .numberList {
   position: absolute;
   right: 30rpx;
-  top: 20rpx;
+  top: 150rpx;
   text-align: center;
   background-color: #fff;
   box-shadow: 3px 3px 2px #bbbcbc;
@@ -160,7 +160,7 @@ map {
   border-radius: 4px;
 }
 
-.searchLocation {
+.searchLocation, .helpButton {
   position: absolute;
   left: 12px;
   bottom: 170px;
