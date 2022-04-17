@@ -9,11 +9,13 @@ POI数据采集及核验移动应用
 
 ## 功能截图
 
+>见文件夹miniprogram/images/show
+
 | 首页 | 详情页 | 核验页 |
 | ---- |  ----| ----|
-|![](miniprogram/images/show/map.jpg) |![](miniprogram/images/show/info.png)| ![](miniprogram/images/show/verify.png) |
+|![](https://raw.githubusercontent.com/Andytonglove/POI_project/guan/miniprogram/images/show/map.jpg) |![](https://raw.githubusercontent.com/Andytonglove/POI_project/guan/miniprogram/images/show/info.png)| ![](https://raw.githubusercontent.com/Andytonglove/POI_project/guan/miniprogram/images/show/verify.png) |
 | 搜索 | 留言板 |
-| ![](miniprogram/images/show/search.jpg) |![](miniprogram/images/show/message.png)|
+| ![](https://raw.githubusercontent.com/Andytonglove/POI_project/guan/miniprogram/images/show/search.jpg) |![](https://raw.githubusercontent.com/Andytonglove/POI_project/guan/miniprogram/images/show/message.png)|
 
 ## 产品功能
 
