@@ -7,6 +7,14 @@ POI地图是一个在小程序中借助 LBS 地图功能实现地图需要上报
 
 POI数据采集及核验移动应用
 
+## 功能截图
+
+| 首页 | 详情页 | 核验页 |
+| ---- |  ----| ----|
+|![](miniprogram/images/show/map.jpg) |![](miniprogram/images/show/info.png)| ![](miniprogram/images/show/verify.png) |
+| 搜索 | 留言板 |
+| ![](miniprogram/images/show/search.jpg) |![](miniprogram/images/show/message.png)|
+
 ## 产品功能
 
 `选题 2` ：POI数据采集及核验移动应用（POI: Point of Interest，兴趣点，地图查询、定位操作重要的数据源：房子、商铺、公交站、花坛、树木、景点等各类地表实体、现象的要素，有一定利用价值）
