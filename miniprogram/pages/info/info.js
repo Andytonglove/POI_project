@@ -46,7 +46,6 @@ Page({
     this.setData({
       worktype: app.globalData.is_verifier,
     })
-    console.log(this.data.worktype)
   },
 
   tapImage: function (e) {
@@ -145,7 +144,6 @@ Page({
   },
   // 更新模块
   refresh: function (event) {
-    console.log("marker更新", event);
     const _id = this.data.store._id;
     wx.navigateTo({
       url: "../refresh/refresh?id=" + _id,

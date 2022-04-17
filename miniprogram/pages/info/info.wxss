@@ -92,6 +92,17 @@ swiper {
   background-color: #007ce6;
 }
 
+.navigated {
+  margin: 20rpx 0rpx;
+  width: 80%;
+  height: 80rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+  font-weight: 200;
+  background-color: #646464;
+}
+
 .jumpMsg {
   position: absolute;
   left: 85%;

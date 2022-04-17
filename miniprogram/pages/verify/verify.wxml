@@ -30,7 +30,8 @@
   </view>
   <!-- 两个确认按钮 -->
   <button class='onError' bindtap="onError">驳回</button>
-  <button class='onPass' bindtap="onPass">通过</button>
+  <button wx:if="{{store.isChecked==0}}" class='onPass' bindtap="onPass">通过</button>
+  <button wx:if="{{store.isChecked==1}}" class='Passed' >已通过</button>
 </view>
 <view class="verifyInput">
   <msgInput showInput="{{show}}" bind:close="close" bind:confirm="confirm"></msgInput>
