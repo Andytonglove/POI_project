@@ -30,7 +30,9 @@
     <button class='navigate' bindtap='navigate'>导航</button>
   </view>
   <view class="navigateBox">
-    <button wx:if="{{worktype}}" class='navigate' bindtap='check'>核验</button>
+    <button wx:if="{{worktype&&(store.isChecked==0)}}" class='navigate' bindtap='check'>核验</button>
+    <button wx:if="{{worktype&&(store.isChecked==1)}}" class='navigate' bindtap='check'>再次核验</button>
+    <button wx:if="{{worktype&&(store.isChecked==2)}}" class='navigated'>已驳回</button>
   </view>
   <view class="navigateBox">
     <button wx:if="{{!worktype}}" class='navigate' bindtap='refresh'>更新</button>

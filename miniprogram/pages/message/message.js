@@ -216,6 +216,7 @@ Page({
         }
       });
     })
+    this.closeRe()
     // 通知
     wx.cloud.callFunction({
       name: 'replyPush',

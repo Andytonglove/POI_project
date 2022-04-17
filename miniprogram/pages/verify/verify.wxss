@@ -73,3 +73,12 @@ swiper {
   color: #ffffff;
   float: right;
 }
+
+.Passed {
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+  width: 50%;
+  background-color: #73797eda;
+  color: #ffffff;
+  float: right;
+}
