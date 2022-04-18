@@ -1,5 +1,9 @@
 <!-- 新手引导弹出层 -->
 <map id="map" class="map" enable-building="true" enable-3D="true">
+    <!-- 新增的搜索框 -->
+    <cover-view>
+        <van-search class="searchline" placeholder=""></van-search>
+    </cover-view>
     <!-- 问题数量表 -->
     <cover-view class="numberList">
         <cover-view class="numberList-item">
@@ -30,6 +34,18 @@
     <!-- 定位 -->
     <cover-view class="getLocation">
         <cover-image src="../../images/home/getLocation.png"></cover-image>
+    </cover-view>
+    <!-- 帮助 -->
+    <cover-view class="helpButton">
+        <cover-image src="../../images/home/help.png"></cover-image>
+    </cover-view>
+    <!-- 待办列表按钮 -->
+    <cover-view class="todolist">
+        <cover-image src="../../images/home/todolist-red.png"></cover-image>
+    </cover-view>
+    <!-- 采集者/核验者 转换按钮 -->
+    <cover-view class="transWorkType">
+        <cover-image src="../../images/home/verifier.png"></cover-image>
     </cover-view>
 
     <cover-view class="tips-image" bindtap="onCloseIntroduction">

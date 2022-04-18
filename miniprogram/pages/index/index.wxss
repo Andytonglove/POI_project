@@ -49,7 +49,7 @@
 .numberList {
   position: absolute;
   right: 30rpx;
-  top: 20rpx;
+  top: 150rpx;
   text-align: center;
   background-color: #fff;
   box-shadow: 3px 3px 2px #bbbcbc;
@@ -90,4 +90,50 @@
   background-color: #fff;
   padding: 10px;
   box-shadow: 1px 2px 3px #999999;
+}
+
+.searchline van-icon image {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.helpButton {
+  position: absolute;
+  left: 12px;
+  bottom: 170px;
+  text-align: center;
+  width: 20px;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 1px 2px 3px #999999;
+  border-radius: 4px;
+}
+
+.searchline van-icon image {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.todolist {
+  position: absolute;
+  left: 12px;
+  bottom: 220px;
+  text-align: center;
+  width: 20px;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 1px 2px 3px #999999;
+  border-radius: 4px;
+}
+
+.transWorkType{
+  position: absolute;
+  left: 12px;
+  bottom: 270px;
+  text-align: center;
+  width: 20px;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 1px 2px 3px #999999;
+  border-radius: 4px;
 }
