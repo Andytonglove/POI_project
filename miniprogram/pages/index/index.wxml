@@ -1,13 +1,13 @@
 <!-- 新手引导弹出层 -->
 <map id="map" class="map" enable-building="true" enable-3D="true">
     <!-- 新增的搜索框 -->
-    <cover-view>
+    <view>
         <van-search class="searchline" placeholder=""></van-search>
-    </cover-view>
+    </view>
     <!-- 发现周边 -->
-    <cover-view>
+    <view>
         <van-button class="nearStore" size="small" plain type="primary" icon="location" round>发现周边</van-button>
-    </cover-view>
+    </view>
     <!-- 问题数量表 -->
     <cover-view class="numberList">
         <cover-view class="numberList-item">

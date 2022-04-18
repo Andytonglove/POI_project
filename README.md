@@ -15,7 +15,7 @@ POI数据采集及核验移动应用
 | ---- |  ----| ----|
 |![map](miniprogram/images/show/map.png) |![info](miniprogram/images/show/info.png)| ![verify](miniprogram/images/show/verify.png) |
 | 搜索 | 留言板 | 所有 |
-| ![search](miniprogram/images/show/search.png) |![message](miniprogram/images/show/message.png)| ![message](miniprogram/images/show/all.jpg) |
+| ![search](miniprogram/images/show/search.png) |![message](miniprogram/images/show/message.png)| ![all](miniprogram/images/show/all.jpg) |
 
 ## 产品功能
 

@@ -8,14 +8,14 @@
   <block wx:if="{{!hideMe}}">
     <cover-view class="add_me" bindtap="hideMe">添加到【我的小程序】更快找到我</cover-view>
   </block>
-  <!-- 新增的搜索框 -->
-  <cover-view>
+  <!-- 新增的搜索框，特别注意这里不能用cover-view否则不显示！！！important! -->
+  <view>
     <van-search class="searchline" value="{{searchValue}}" placeholder="请输入POI关键词以搜索" bind:search="onSearch" right-icon="{{UserAvatarUrl}}" bind:change="onChangeSearch"></van-search>
-  </cover-view>
+  </view>
   <!-- 附近的周边兴趣点 -->
-  <cover-view>
+  <view>
     <van-button class="nearStore" size="small" plain="{{!findNearby}}" type="primary" bind:click="nearSearch" icon="location" round>发现周边</van-button>
-  </cover-view>
+  </view>
   <!-- 问题数量表 -->
   <cover-view class="numberList">
     <cover-view class="numberList-item">
