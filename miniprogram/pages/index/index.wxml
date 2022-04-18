@@ -53,7 +53,7 @@
     </cover-view>
 
     <cover-view class="tips-image" bindtap="onCloseIntroduction">
-        <cover-image src="../../images/intro/tips3.png" class="tips" mode="widthFix"></cover-image>
+        <cover-image src="../../images/intro/new-tips3.png" class="tips" mode="widthFix"></cover-image>
         <cover-image src="../../images/intro/new-nav2.png" class="nav" mode="widthFix"></cover-image>
     </cover-view>
 </map>
