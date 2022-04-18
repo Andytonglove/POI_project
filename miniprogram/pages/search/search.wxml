@@ -1,5 +1,16 @@
 <view class="search_box">
-  <input class='search_input' type="text" confirm-type="search" placeholder="请输入要搜索的关键词" bindconfirm="search" focus='{{focus}}' value="{{keywords}}"></input>
+  <input class='search_input' type="text" confirm-type="search" placeholder="请输入要搜索的关键词" bindconfirm="search" bindinput="search" focus='{{focus}}' value="{{keywords}}"></input>
+</view>
+<view wx:if="{{stores.length == 0 && !searched}}">
+	<view class="hotSearchBgView">
+		<view class="hotSearchTitle">热门搜索 <text class=".cuIcon-search margin-right-df"></text></view>
+		<view class="hotSearchTagBgView">
+			<view class="hotSearchTag" bindtap='ClickHotSearchItem' data-text="武汉大学">武汉大学</view>
+			<view class="hotSearchTag" bindtap='ClickHotSearchItem' data-text="旅游">旅游</view>
+			<view class="hotSearchTag" bindtap='ClickHotSearchItem' data-text="餐饮">餐饮</view>
+			<view class="hotSearchTag" bindtap='ClickHotSearchItem' data-text="破损">破损</view>
+		</view>
+	</view>
 </view>
 <block wx:if="{{stores}}" wx:for="{{stores}}" wx:key="_id">
   <navigator url="../info/info?id={{item._id}}">
@@ -11,8 +22,9 @@
     </view>
   </navigator>
 </block>
-<block wx:if="{{stores.length == 0 && !searched}}">
-  <view class="not_found">请点击上方搜索框输入要搜索的关键字</view>
+<block class="not_found" wx:if="{{stores.length == 0 && !searched}}">
+  <!-- <view class="not_found">请点击上方搜索框输入要搜索的关键字</view> -->
+  <image class="search_tip_img" src="../../images/search.png"></image>
 </block>
 <block wx:if="{{searched}}">
   <view class="no_result_button">

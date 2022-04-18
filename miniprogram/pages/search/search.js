@@ -75,5 +75,11 @@ Page({
     },res => {
       this.loadData();
     }) 
+  },
+  // 热搜跳转
+  ClickHotSearchItem : function (e) {
+    this.setData({
+      keywords: e.target.dataset.text,
+    })
   }
 })

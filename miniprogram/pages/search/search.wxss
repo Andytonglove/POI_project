@@ -14,6 +14,7 @@ page {
 }
 .search_input{
   background-color: #fff;
+  margin:5px;
   width: 100%;
   height: 80rpx;
 }
@@ -76,4 +77,41 @@ page {
   position: absolute;
   display: inline-block;
   right: 12px;
+}
+
+/* 热搜 */
+.hotSearchBgView {
+  background: white;
+  /* background: yellow; */
+}
+
+.hotSearchTitle {
+  padding-left: 30rpx;
+  padding-top: 20rpx;
+  font-size: 35rpx;
+}
+
+.hotSearchTagBgView {
+  padding: 10rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hotSearchTag {
+  width: auto;
+  height: 50rpx;
+  line-height: 50rpx;
+  background: rgba(246, 246, 246, 1);
+  border-radius: 10rpx;
+  padding: 5rpx 25rpx;
+  font-weight: 300;
+  font-size: 30rpx;
+  color: #4A4A4A;
+  margin: 10rpx;
+  background: rgb(240, 240, 240);
+  /* background: wheat; */
+}
+
+.search_tip_img {
+  margin-top: 50px;
 }
