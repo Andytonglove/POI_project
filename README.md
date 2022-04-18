@@ -13,9 +13,9 @@ POI数据采集及核验移动应用
 
 | 首页 | 详情页 | 核验页 |
 | ---- |  ----| ----|
-|![map](https://raw.githubusercontent.com/Andytonglove/POI_project/master/miniprogram/images/show/map.jpg) |![info](https://raw.githubusercontent.com/Andytonglove/POI_project/master/miniprogram/images/show/info.png)| ![verify](https://raw.githubusercontent.com/Andytonglove/POI_project/master/miniprogram/images/show/verify.png) |
-| 搜索 | 留言板 |
-| ![search](https://raw.githubusercontent.com/Andytonglove/POI_project/master/miniprogram/images/show/search.jpg) |![message](https://raw.githubusercontent.com/Andytonglove/POI_project/master/miniprogram/images/show/message.png)|
+|![map](miniprogram/images/show/map.png) |![info](miniprogram/images/show/info.png)| ![verify](miniprogram/images/show/verify.png) |
+| 搜索 | 留言板 | 所有 |
+| ![search](miniprogram/images/show/search.png) |![message](miniprogram/images/show/message.png)| ![message](miniprogram/images/show/all.jpg) |
 
 ## 产品功能
 

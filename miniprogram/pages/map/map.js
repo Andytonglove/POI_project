@@ -2,6 +2,7 @@ const app = getApp();
 const config = require("../../config.js");
 const db = wx.cloud.database();
 const store = db.collection("store");
+const QQMapWX = require("../../libs/qqmap-wx-jssdk.min.js")
 
 Page({
   /**
@@ -23,7 +24,8 @@ Page({
     done: true,
     workType: false,
     searchValue: "",
-    UserAvatarUrl: null
+    UserAvatarUrl: null,
+    findNearby: false
   },
 
   /**
@@ -251,16 +253,23 @@ Page({
       url: "../search/search",
     });
   },
+  onChangeSearch: function (e) {
+    this.setData({
+      searchValue : e.detail
+    })
+  },
   /**
    * 一些页面跳转
    */
   onMarkerTap: function (event) {
     console.log("marker点击", event);
     const index = event.detail.markerId;
-    const _id = this.data.stores[index]._id;
-    wx.navigateTo({
-      url: "../info/info?id=" + _id,
-    });
+    if(!this.data.findNearby){
+      const _id = this.data.stores[index]._id;
+      wx.navigateTo({
+        url: "../info/info?id=" + _id,
+      });
+    }
   },
   viewAll: function () {
     wx.navigateTo({
@@ -421,6 +430,62 @@ Page({
         }
       },
     });
+  },
+
+  // 周边附近的点
+  nearSearch: function () {
+    // 实例化API核心对象并调用接口
+    const qqmapsdk = new QQMapWX({
+      key: config.mapSubKey
+    })
+    var that = this;
+    if(this.data.findNearby){
+      // 重绘界面并重新置值
+      that.onLoad();
+      this.setData({
+        findNearby: false
+      })
+    }else{
+      if(this.data.searchValue==""){
+        wx.showToast({
+          title: "请在上方输入框中输入关键词，才能点击此按钮发现周边哦！",
+          icon: "none",
+        });
+      }else{
+        qqmapsdk.search({
+          keyword: this.data.searchValue, // 搜索关键字，例如'kfc'
+          location: {
+            latitude: this.data.latitude,
+            longitude: this.data.longitude
+          },
+          success: (res) => {
+            var mks = [];
+            for(let i = 0; i < res.data.length; i++){
+              mks.push({
+                // 获取返回结果
+                title: res.data[i].title,
+                id: parseInt(res.data[i].id),
+                latitude: res.data[i].location.lat,
+                longitude: res.data[i].location.lng,
+                // iconPath: "/resources/my_marker.png", // 图标路径
+                width: 20,
+                height: 25
+              })
+            }
+            that.setData({ // 设置markers属性，将搜索结果显示在地图中
+              stores: mks,
+              findNearby: true
+            })
+          },
+          fail: function (res) {
+            console.log(res);
+          },
+          complete: function (res){
+            console.log(res);
+          }
+        })
+      }
+    }
   },
 
   /**

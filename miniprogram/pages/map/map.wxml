@@ -10,7 +10,11 @@
   </block>
   <!-- 新增的搜索框 -->
   <cover-view>
-    <van-search class="searchline" value="{{searchValue}}" placeholder="请输入POI关键词以搜索" bind:search="onSearch" right-icon="{{UserAvatarUrl}}"></van-search>
+    <van-search class="searchline" value="{{searchValue}}" placeholder="请输入POI关键词以搜索" bind:search="onSearch" right-icon="{{UserAvatarUrl}}" bind:change="onChangeSearch"></van-search>
+  </cover-view>
+  <!-- 附近的周边兴趣点 -->
+  <cover-view>
+    <van-button class="nearStore" size="small" plain="{{!findNearby}}" type="primary" bind:click="nearSearch" icon="location" round>发现周边</van-button>
   </cover-view>
   <!-- 问题数量表 -->
   <cover-view class="numberList">

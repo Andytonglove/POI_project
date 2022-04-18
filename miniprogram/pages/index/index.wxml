@@ -4,6 +4,10 @@
     <cover-view>
         <van-search class="searchline" placeholder=""></van-search>
     </cover-view>
+    <!-- 发现周边 -->
+    <cover-view>
+        <van-button class="nearStore" size="small" plain type="primary" icon="location" round>发现周边</van-button>
+    </cover-view>
     <!-- 问题数量表 -->
     <cover-view class="numberList">
         <cover-view class="numberList-item">
@@ -50,6 +54,6 @@
 
     <cover-view class="tips-image" bindtap="onCloseIntroduction">
         <cover-image src="../../images/intro/tips3.png" class="tips" mode="widthFix"></cover-image>
-        <cover-image src="../../images/intro/nav2.png" class="nav" mode="widthFix"></cover-image>
+        <cover-image src="../../images/intro/new-nav2.png" class="nav" mode="widthFix"></cover-image>
     </cover-view>
 </map>
