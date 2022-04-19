@@ -46,7 +46,10 @@ Page({
             isChecked: res.data.isChecked,
             address: res.data.address,
             problemLabel: res.data.problemLabel,
-            type: res.data.type
+            type: res.data.type,
+            iconPath: res.data.iconPath,
+            latitude: res.data.latitude,
+            longitude: res.data.longitude
           },
           (res) => {
             if(this.data.isChecked==2){
