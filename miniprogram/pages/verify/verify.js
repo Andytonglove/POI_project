@@ -123,6 +123,9 @@ Page({
               isChecked: 1, // 该状态表示已通过
             }
           });
+          wx.navigateTo({
+            url: '../info/info?id='+this.data.id,
+          })
           wx.showToast({
             title: "核验通过",
             icon: "none",
@@ -154,6 +157,9 @@ Page({
             }
           });
           console.log(e.detail)
+          wx.navigateTo({
+            url: '../info/info?id='+this.data.id,
+          })
           wx.showToast({
             title: "成功驳回",
             icon: "none",
