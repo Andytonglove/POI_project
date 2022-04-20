@@ -14,7 +14,7 @@
             <cover-image class="numberList-item-image" src="../../images/home/design.png"></cover-image>
             <cover-view class="numberList-item-text">
                 3
-                <cover-view style="font-size:10px;">设计</cover-view>
+                <cover-view style="font-size:10px;">开放</cover-view>
             </cover-view>
         </cover-view>
         <cover-view class="numberList-item-line"></cover-view>
@@ -22,7 +22,7 @@
             <cover-image class="numberList-item-image" src="../../images/home/occupy.png"></cover-image>
             <cover-view class="numberList-item-text">
                 4
-                <cover-view style="font-size:10px;">占用</cover-view>
+                <cover-view style="font-size:10px;">异常</cover-view>
             </cover-view>
         </cover-view>
         <cover-view class="numberList-item-line"></cover-view>
@@ -30,7 +30,7 @@
             <cover-image class="numberList-item-image" src="../../images/home/error.png"></cover-image>
             <cover-view class="numberList-item-text">
                 5
-                <cover-view style="font-size:10px;">破损</cover-view>
+                <cover-view style="font-size:10px;">维护</cover-view>
             </cover-view>
         </cover-view>
     </cover-view>

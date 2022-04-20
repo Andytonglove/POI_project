@@ -8,7 +8,7 @@
 			<view class="hotSearchTag" bindtap='ClickHotSearchItem' data-text="武汉大学">武汉大学</view>
 			<view class="hotSearchTag" bindtap='ClickHotSearchItem' data-text="旅游">旅游</view>
 			<view class="hotSearchTag" bindtap='ClickHotSearchItem' data-text="餐饮">餐饮</view>
-			<view class="hotSearchTag" bindtap='ClickHotSearchItem' data-text="破损">破损</view>
+			<view class="hotSearchTag" bindtap='ClickHotSearchItem' data-text="维护">维护</view>
 		</view>
 	</view>
 </view>

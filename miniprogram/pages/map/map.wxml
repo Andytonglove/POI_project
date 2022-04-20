@@ -16,13 +16,13 @@
   <view>
     <van-button class="nearStore" size="small" plain="{{!findNearby}}" type="primary" bind:click="nearSearch" icon="location" round>发现周边</van-button>
   </view>
-  <!-- 问题数量表 -->
+  <!-- 问题数量表，原来为设计/占用/破损，改为开放/异常/维护 -->
   <cover-view class="numberList">
     <cover-view class="numberList-item">
       <cover-image class="numberList-item-image" src="/images/home/design.png"></cover-image>
       <cover-view class="numberList-item-text">
         {{designProblemNumber}}
-        <cover-view style="font-size:10px;">设计</cover-view>
+        <cover-view style="font-size:10px;">开放</cover-view>
       </cover-view>
     </cover-view>
     <cover-view class="numberList-item-line"></cover-view>
@@ -30,7 +30,7 @@
       <cover-image class="numberList-item-image" src="/images/home/occupy.png"></cover-image>
       <cover-view class="numberList-item-text">
         {{occurpyProblemNumber}}
-        <cover-view style="font-size:10px;">占用</cover-view>
+        <cover-view style="font-size:10px;">异常</cover-view>
       </cover-view>
     </cover-view>
     <cover-view class="numberList-item-line"></cover-view>
@@ -38,7 +38,7 @@
       <cover-image class="numberList-item-image" src="/images/home/error.png"></cover-image>
       <cover-view class="numberList-item-text">
         {{errorProblemNumber}}
-        <cover-view style="font-size:10px;">破损</cover-view>
+        <cover-view style="font-size:10px;">维护</cover-view>
       </cover-view>
     </cover-view>
   </cover-view>

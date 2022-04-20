@@ -15,13 +15,13 @@
       <van-radio-group value='{{problemLabel}}' bind:change="onChangeRadio" class="radio">
         <van-row>
           <van-col span="8">
-            <van-radio name="兴趣点占用">兴趣点占用</van-radio>
+            <van-radio name="兴趣点异常">兴趣点异常</van-radio>
           </van-col>
           <van-col span="8">
-            <van-radio name="兴趣点破损">兴趣点破损</van-radio>
+            <van-radio name="兴趣点维护">兴趣点维护</van-radio>
           </van-col>
           <van-col span="8">
-            <van-radio name="兴趣点设计">兴趣点设计</van-radio>
+            <van-radio name="兴趣点开放">兴趣点开放</van-radio>
           </van-col>
         </van-row>
       </van-radio-group>

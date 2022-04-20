@@ -257,11 +257,11 @@ Page({
     const problemLabel = event.detail;
     let iconPath = "";
     switch (problemLabel) {
-      case "兴趣点占用":
+      case "兴趣点异常":
         iconPath = "../../images/marker/occupy.png";
         break;
 
-      case "兴趣点设计":
+      case "兴趣点开放":
         iconPath = "../../images/marker/design.png";
         break;
 
