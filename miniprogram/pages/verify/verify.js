@@ -124,7 +124,8 @@ Page({
             }
           });
           wx.navigateTo({
-            url: '../info/info?id='+this.data.id,
+            // url: '../info/info?id='+this.data.id,
+            url: '../map/map',
           })
           wx.showToast({
             title: "核验通过",
@@ -158,7 +159,8 @@ Page({
           });
           console.log(e.detail)
           wx.navigateTo({
-            url: '../info/info?id='+this.data.id,
+            // url: '../info/info?id='+this.data.id,
+            url: '../map/map',
           })
           wx.showToast({
             title: "成功驳回",
